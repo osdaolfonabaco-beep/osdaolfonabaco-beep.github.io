@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oscar Olarte - Portafolio de Ciberseguridad e IA</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Oscar Olarte - Desarrollador Frontend</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="nav-logo">OscarOlarte.dev</a>
+            <a href="#" class="nav-logo">Oscar Olarte</a>
             <ul class="nav-menu">
-                <li><a href="#hero">Inicio</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#experience">Experiencia</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#about" class="nav-link">Sobre Mí</a></li>
+                <li><a href="#projects" class="nav-link">Proyectos</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#experience" class="nav-link">Experiencia</a></li>
+                <li><a href="#contact" class="nav-link">Contacto</a></li>
             </ul>
             <div class="nav-toggle" id="nav-toggle">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
 
     <div class="mobile-nav" id="mobile-nav">
         <div class="mobile-nav-close" id="mobile-nav-close">
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fas fa-times"></i>
         </div>
         <ul class="mobile-nav-menu">
-            <li><a href="#hero" class="mobile-nav-link">Inicio</a></li>
+            <li><a href="#about" class="mobile-nav-link">Sobre Mí</a></li>
             <li><a href="#projects" class="mobile-nav-link">Proyectos</a></li>
             <li><a href="#skills" class="mobile-nav-link">Habilidades</a></li>
             <li><a href="#experience" class="mobile-nav-link">Experiencia</a></li>
@@ -41,127 +39,123 @@
         </ul>
     </div>
 
-    <header class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title fade-in">Hola, soy Oscar Olarte</h1>
-                <p class="hero-subtitle text-gradient fade-in">
-                    Especialista en Ciberseguridad e Inteligencia Artificial
-                </p>
-                <p class="hero-description fade-in">
-                    Transformo datos en defensas. 
-                    Construyo soluciones de seguridad automatizadas e inteligentes 
-                    utilizando IA, Cloud y DevSecOps.
-                </p>
-                <div class="hero-links fade-in">
-                    <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-flask-vial"></i> Ver Proyectos</a>
-                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Contactar</a>
-                </div>
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <p class="hero-subtitle fade-in">¡Hola a todos! Soy</p>
+            <h1 class="fade-in text-gradient">Oscar David Olarte Forero: Construyendo Futuros Digitales, Un Proyecto a la Vez.</h1>
+            <p class="hero-description fade-in">
+                Desarrollador Frontend con una pasión por convertir ideas innovadoras en experiencias web intuitivas y funcionales. Mi compromiso es aportar valor y eficiencia a cada desafío.
+            </p>
+            <div class="hero-links fade-in">
+                <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+                <a href="#contact" class="btn btn-secondary">Contactar</a>
             </div>
         </div>
-    </header>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="reveal-title">Sobre Mí</h2>
+            <div class="reveal-card">
+                <p>Soy un apasionado desarrollador frontend con base en [Tu Ciudad/País]. Mi viaje en el desarrollo web comenzó con la curiosidad de cómo se construyen las interacciones digitales y ha evolucionado hacia un compromiso constante con la creación de soluciones eficientes y amigables con el usuario.</p>
+                <p>Aunque mi experiencia laboral formal está en crecimiento, mi portafolio demuestra mi habilidad para dominar nuevas tecnologías rápidamente y aplicarlas en proyectos reales. Disfruto cada parte del proceso de desarrollo, desde el diseño conceptual hasta la implementación y optimización. Siempre estoy buscando aprender y mejorar, adoptando las mejores prácticas para escribir código limpio, mantenible y escalable.</p>
+                <p>Cuando no estoy programando, me encontrarás [Menciona un hobby o interés, ej: aprendiendo sobre ciberseguridad, explorando nuevas tecnologías, jugando videojuegos, leyendo, haciendo senderismo].</p>
+            </div>
+        </div>
+    </section>
 
     <section id="projects" class="projects-section">
         <div class="container">
-            <h2 class="reveal-title text-gradient">Proyectos Destacados</h2>
+            <h2 class="reveal-title">Mis Proyectos</h2>
             <div class="projects-grid">
-                
-                <div class="project-card reveal-card" 
-                     data-title="Autonomous SOC Analyst Agent"
-                     data-description="Un agente de IA que automatiza por completo el flujo de un analista SOC Nivel 1. Ingiere logs de AWS CloudTrail, detecta anomalías de inicio de sesión y realiza un enriquecimiento automático de IPs (Geo-location y VirusTotal). Finalmente, utiliza LangChain y Claude 3 para generar informes de incidentes listos para ejecutivos, reduciendo drásticamente la fatiga de alertas."
-                     data-tags='["Python", "IA (LangChain)", "Ciberseguridad", "AWS (Boto3)", "Automatización"]'
-                     data-github-url="https://github.com/osdaolfonabaco-beep/Autonomous-soc-analyst-agent">
-                    
-                    <div class="project-image" style="background-image: url('URL_DE_TU_IMAGEN_1.png');"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Autonomous SOC Analyst Agent</h3>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Un agente de IA que automatiza por completo el flujo de un analista SOC Nivel 1...
-                            </p>
-                            <ul class="project-tags">
-                                <li>Python</li>
-                                <li>IA (LangChain)</li>
-                                <li>AWS</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <button class="btn-project-modal">Ver Detalles</button>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="project-card reveal-card"
-                     data-title="AWS Serverless Log Analyzer"
-                     data-description="Un pipeline de análisis de seguridad 100% serverless y automatizado en AWS, diseñado para detectar actividad sospechosa. Toda la infraestructura (S3, Lambda, ECR, IAM) es desplegada de forma consistente y repetible utilizando Terraform (IaC). Al subir un log a S3, un contenedor Docker en Lambda es invocado para analizar las IPs más frecuentes y reportar los hallazgos a CloudWatch."
-                     data-tags='["AWS (Lambda/S3)", "Terraform (IaC)", "Serverless", "Docker", "Python"]'
-                     data-github-url="https://github.com/osdaolfonabaco-beep/AWS-Serverless-log-analyzer">
-                    
-                    <div class="project-image" style="background-image: url('URL_DE_TU_IMAGEN_2.png');"></div>
+                    data-title="Sistema de Gestión de Inventario"
+                    data-description="Un robusto sistema web para el control y seguimiento de inventario. Incluye funcionalidades de alta, baja, modificación de productos, gestión de usuarios, roles y reportes dinámicos. Desarrollado con tecnologías modernas para una experiencia de usuario fluida."
+                    data-github-url="https://github.com/tu-usuario/proyecto-inventario"
+                    data-tags='["React", "Node.js", "Express", "MongoDB", "CSS Modules"]'
+                    data-image-url="https://via.placeholder.com/600x400.png?text=Inventario+App">
+                    <div class="project-image" style="background-image: url('https://via.placeholder.com/600x400.png?text=Inventario+App');"></div>
                     <div class="project-content">
-                        <h3 class="project-title">AWS Serverless Log Analyzer</h3>
+                        <h3>Sistema de Gestión de Inventario</h3>
                         <div class="project-details">
-                            <p class="project-description">
-                                Un pipeline de análisis de seguridad 100% serverless y automatizado en AWS...
-                            </p>
+                            <p class="project-description">Interfaz intuitiva para el seguimiento de productos y stocks.</p>
                             <ul class="project-tags">
-                                <li>Terraform (IaC)</li>
-                                <li>AWS</li>
-                                <li>Docker</li>
+                                <li>React</li>
+                                <li>Node.js</li>
+                                <li>MongoDB</li>
                             </ul>
                         </div>
                         <div class="project-links">
-                            <button class="btn-project-modal">Ver Detalles</button>
+                            <button class="btn btn-project-modal">Ver Detalles</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card reveal-card"
-                     data-title="LogSentinel: Cloud Security Pipeline"
-                     data-description="Un pipeline de datos de seguridad de extremo a extremo que transforma logs brutos en inteligencia accionable. El sistema ingiere datos desde AWS S3, los enriquece en tiempo real contra APIs de inteligencia de amenazas (como AbuseIPDB) y persiste los hallazOS en una base de datos SQL para análisis histórico. Demuestra un dominio completo del ciclo de vida del dato de seguridad, desde la generación de datasets a gran escala (con Pandas) hasta la consulta final con SQL."
-                     data-tags='["Python", "Data Engineering", "AWS (S3/Boto3)", "SQL (SQLite)", "Pandas"]'
-                     data-github-url="https://github.com/osdaolfonabaco-beep/LogSentinel-cloud-pipeline">
-                    
-                    <div class="project-image" style="background-image: url('URL_DE_TU_IMAGEN_3.png');"></div>
+                    data-title="Plataforma E-commerce para Artesanías"
+                    data-description="Una plataforma de comercio electrónico diseñada para artistas y artesanos locales. Permite la exhibición de productos, carrito de compras, pasarela de pagos y un panel de administración para gestionar pedidos y catálogo."
+                    data-github-url="https://github.com/tu-usuario/e-commerce-artesanias"
+                    data-tags='["Vue.js", "Firebase", "Stripe", "Sass"]'
+                    data-image-url="https://via.placeholder.com/600x400.png?text=E-commerce+Artesanias">
+                    <div class="project-image" style="background-image: url('https://via.placeholder.com/600x400.png?text=E-commerce+Artesanias');"></div>
                     <div class="project-content">
-                        <h3 class="project-title">LogSentinel: Cloud Security Pipeline</h3>
+                        <h3>Plataforma E-commerce para Artesanías</h3>
                         <div class="project-details">
-                            <p class="project-description">
-                                Un pipeline de datos de seguridad de extremo a extremo que transforma logs brutos...
-                            </p>
+                            <p class="project-description">Conecta artesanos con clientes en un mercado vibrante.</p>
                             <ul class="project-tags">
-                                <li>Python</li>
-                                <li>Data Engineering</li>
-                                <li>SQL</li>
+                                <li>Vue.js</li>
+                                <li>Firebase</li>
+                                <li>Sass</li>
                             </ul>
                         </div>
                         <div class="project-links">
-                            <button class="btn-project-modal">Ver Detalles</button>
+                            <button class="btn btn-project-modal">Ver Detalles</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card reveal-card"
-                     data-title='"Superhuman" AI Security Gateway'
-                     data-description="Un gateway de seguridad de nivel de producción (Docker/FastAPI) que actúa como un 'Guardia de IA' entre los usuarios y cualquier LLM. Implementa una defensa en profundidad: analiza los prompts de *entrada* para bloquear ataques de Inyección de Prompts y escanea las respuestas de *salida* para detectar y redactar PII (DLP) y contenido tóxico, resolviendo el mayor riesgo en la adopción empresarial de la IA."
-                     data-tags='["Python (FastAPI)", "IA Security", "Docker", "LLM", "DLP (PII)"]'
-                     data-github-url="https://github.com/osdaolfonabaco-beep/llm-security-gateway">
-                    
-                    <div class="project-image" style="background-image: url('URL_DE_TU_IMAGEN_4.png');"></div>
+                    data-title="Aplicación de Clima Interactivo"
+                    data-description="Una aplicación web que muestra el pronóstico del tiempo en tiempo real para cualquier ciudad del mundo. Utiliza una API externa y presenta los datos de forma clara y visual, con animaciones dinámicas según el clima."
+                    data-github-url="https://github.com/tu-usuario/app-clima"
+                    data-tags='["JavaScript", "HTML", "CSS", "API REST"]'
+                    data-image-url="https://via.placeholder.com/600x400.png?text=Clima+App">
+                    <div class="project-image" style="background-image: url('https://via.placeholder.com/600x400.png?text=Clima+App');"></div>
                     <div class="project-content">
-                        <h3 class="project-title">"Superhuman" AI Security Gateway</h3>
+                        <h3>Aplicación de Clima Interactivo</h3>
                         <div class="project-details">
-                            <p class="project-description">
-                                Un gateway de seguridad de nivel de producción (Docker/FastAPI) que actúa como un 'Guardia de IA'...
-                            </p>
+                            <p class="project-description">Pronóstico del tiempo en tiempo real, con diseño responsivo.</p>
                             <ul class="project-tags">
-                                <li>IA Security</li>
-                                <li>LLM</li>
-                                <li>FastAPI</li>
+                                <li>JavaScript</li>
+                                <li>API REST</li>
+                                <li>CSS</li>
                             </ul>
                         </div>
                         <div class="project-links">
-                            <button class="btn-project-modal">Ver Detalles</button>
+                            <button class="btn btn-project-modal">Ver Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-card"
+                    data-title="Portafolio Personal V1"
+                    data-description="Mi primer portafolio web, diseñado para mostrar mis habilidades iniciales en desarrollo frontend. Un proyecto fundamental para aprender los principios del diseño responsivo y la interactividad básica con JavaScript."
+                    data-github-url="https://github.com/tu-usuario/mi-primer-portafolio"
+                    data-tags='["HTML5", "CSS3", "JavaScript"]'
+                    data-image-url="https://via.placeholder.com/600x400.png?text=Portafolio+V1">
+                    <div class="project-image" style="background-image: url('https://via.placeholder.com/600x400.png?text=Portafolio+V1');"></div>
+                    <div class="project-content">
+                        <h3>Portafolio Personal V1</h3>
+                        <div class="project-details">
+                            <p class="project-description">Demostración inicial de habilidades en desarrollo web.</p>
+                            <ul class="project-tags">
+                                <li>HTML5</li>
+                                <li>CSS3</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-project-modal">Ver Detalles</button>
                         </div>
                     </div>
                 </div>
@@ -171,132 +165,124 @@
 
     <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="reveal-title text-gradient">Habilidades Técnicas</h2>
+            <h2 class="reveal-title">Mis Habilidades</h2>
             <div class="skills-grid">
-                
                 <div class="skill-category reveal-card">
-                    <h4>Lenguajes y Core</h4>
+                    <h4><i class="fas fa-code"></i> Frontend Core</h4>
                     <ul class="skill-list">
-                        <li><i class="fa-brands fa-python"></i> Python</li>
-                        <li><i class="fa-solid fa-database"></i> SQL / NoSQL</li>
-                        <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
-                        <li><i class="fa-solid fa-terminal"></i> Bash / Shell</li>
+                        <li><i class="fas fa-check-circle"></i> HTML5 (Semántico, Accesible)</li>
+                        <li><i class="fas fa-check-circle"></i> CSS3 (Flexbox, Grid, Animaciones)</li>
+                        <li><i class="fas fa-check-circle"></i> JavaScript (ES6+, DOM Manipulation)</li>
+                        <li><i class="fas fa-check-circle"></i> Diseño Responsivo y Mobile-First</li>
                     </ul>
                     <div class="skill-concepts">
-                        <span>Pandas</span>
-                        <span>FastAPI</span>
-                        <span>Automatización</span>
+                        <span>Sass/Less</span><span>Styled-Components</span><span>Bootstrap</span><span>Material-UI</span>
                     </div>
                 </div>
-                
                 <div class="skill-category reveal-card">
-                    <h4>Ciberseguridad</h4>
+                    <h4><i class="fas fa-laptop-code"></i> Frameworks & Librerías</h4>
                     <ul class="skill-list">
-                        <li><i class="fa-solid fa-shield-halved"></i> Análisis de Logs</li>
-                        <li><i class="fa-solid fa-bug"></i> Respuesta a Incidentes</li>
-                        <li><i class="fa-solid fa-lock"></i> Seguridad Ofensiva</li>
-                        <li><i class="fa-solid fa-network-wired"></i> Seguridad de Redes</li>
+                        <li><i class="fas fa-check-circle"></i> React.js (Hooks, Context API)</li>
+                        <li><i class="fas fa-check-circle"></i> Vue.js (Vue 2/3, Vuex)</li>
+                        <li><i class="fas fa-check-circle"></i> Next.js (SSR, Static Generation)</li>
+                        <li><i class="fas fa-check-circle"></i> Redux (para React)</li>
                     </ul>
                     <div class="skill-concepts">
-                        <span>SIEM</span>
-                        <span>Pentesting</span>
-                        <span>IAM</span>
-                        <span>Malware Analysis</span>
+                        <span>Angular Básico</span><span>jQuery</span><span>Webpack</span><span>Vite</span>
                     </div>
                 </div>
-                
                 <div class="skill-category reveal-card">
-                    <h4>IA y Datos</h4>
+                    <h4><i class="fas fa-server"></i> Backend & Bases de Datos (Básico)</h4>
                     <ul class="skill-list">
-                        <li><i class="fa-solid fa-robot"></i> Machine Learning</li>
-                        <li><i class="fa-solid fa-brain"></i> Deep Learning</li>
-                        <li><i class="fa-solid fa-file-lines"></i> NLP (LLMs)</li>
-                        <li><i class="fa-solid fa-chart-simple"></i> Data Engineering</li>
+                        <li><i class="fas fa-check-circle"></i> Node.js (Express.js)</li>
+                        <li><i class="fas fa-check-circle"></i> RESTful APIs</li>
+                        <li><i class="fas fa-check-circle"></i> MongoDB (Mongoose)</li>
+                        <li><i class="fas fa-check-circle"></i> SQL (PostgreSQL Básico)</li>
                     </ul>
                     <div class="skill-concepts">
-                        <span>Scikit-learn</span>
-                        <span>LangChain</span>
-                        <span>Pandas</span>
-                        <span>Airflow</span>
+                        <span>Firebase</span><span>Auth0</span><span>AWS Amplify (Básico)</span>
                     </div>
                 </div>
-                
                 <div class="skill-category reveal-card">
-                    <h4>Cloud y DevOps</h4>
+                    <h4><i class="fas fa-tools"></i> Herramientas & Otros</h4>
                     <ul class="skill-list">
-                        <li><i class="fa-brands fa-aws"></i> AWS</li>
-                        <li><i class="fa-brands fa-docker"></i> Docker</li>
-                        <li><i class="fa-solid fa-infinity"></i> CI/CD</li>
-                        <li><i class="fa-solid fa-server"></i> Terraform (IaC)</li>
+                        <li><i class="fas fa-check-circle"></i> Git & GitHub</li>
+                        <li><i class="fas fa-check-circle"></i> Herramientas de Desarrollo (Chrome DevTools)</li>
+                        <li><i class="fas fa-check-circle"></i> Metodologías Ágiles (Scrum)</li>
+                        <li><i class="fas fa-check-circle"></i> Resolución de Problemas</li>
                     </ul>
                     <div class="skill-concepts">
-                        <span>Lambda</span>
-                        <span>S3</span>
-                        <span>GitHub Actions</span>
-                        <span>Kubernetes</span>
+                        <span>Figma (Básico)</span><span>VS Code</span><span>Netlify</span><span>Vercel</span>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
 
     <section id="experience" class="experience-section">
         <div class="container">
-            <h2 class="reveal-title text-gradient">Experiencia y Formación</h2>
+            <h2 class="reveal-title">Experiencia y Educación</h2>
             <div class="timeline">
-                
                 <div class="timeline-item left reveal-card">
                     <div class="timeline-content">
-                        <div class="timeline-date">2021 - 2024</div>
-                        <div class="timeline-title">Administrador de Empresas</div>
-                        <div class="timeline-subtitle">Corporación Universitaria Minuto de Dios</div>
+                        <span class="timeline-date">Enero 2023 - Presente</span>
+                        <h3 class="timeline-title">Desarrollador Frontend (Freelance)</h3>
+                        <p class="timeline-subtitle">Proyectos Personales y Colaboraciones</p>
                         <div class="timeline-summary">
-                            <p>Formación en gestión estratégica, finanzas y optimización de procesos de negocio.</p>
+                            <p>Desarrollo y mantenimiento de interfaces de usuario para diversos proyectos web, aplicando las mejores prácticas de UI/UX. Colaboración en el diseño de la arquitectura frontend y la integración con APIs RESTful. Implementación de soluciones responsivas y optimización del rendimiento para asegurar una experiencia de usuario fluida en múltiples dispositivos.</p>
+                            <ul>
+                                <li>Creación de componentes reutilizables con React/Vue.js.</li>
+                                <li>Integración con APIs RESTful.</li>
+                                <li>Diseño y desarrollo responsivo.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="timeline-item right reveal-card">
                     <div class="timeline-content">
-                        <div class="timeline-date">2024</div>
-                        <div class="timeline-title">Certificación AWS Cloud Practitioner</div>
-                        <div class="timeline-subtitle">Amazon Web Services</div>
+                        <span class="timeline-date">Enero 2022 - Diciembre 2022</span>
+                        <h3 class="timeline-title">Bootcamp Desarrollador Web Fullstack</h3>
+                        <p class="timeline-subtitle">Nombre del Bootcamp, Ciudad</p>
                         <div class="timeline-summary">
-                            <p>Dominio de los fundamentos de la nube de AWS, servicios core, seguridad, arquitectura y precios.</p>
+                            <p>Programa intensivo de desarrollo web que cubrió las bases de frontend (HTML, CSS, JavaScript, React) y backend (Node.js, Express, MongoDB, SQL). Desarrollo de proyectos individuales y en equipo, enfocándose en la resolución de problemas y la aplicación de metodologías ágiles.</p>
+                            <ul>
+                                <li>Fundamentos de programación y algoritmos.</li>
+                                <li>Desarrollo de proyectos con MERN Stack.</li>
+                                <li>Prácticas en control de versiones con Git.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item left reveal-card">
                     <div class="timeline-content">
-                        <div class="timeline-date">2024</div>
-                        <div class="timeline-title">Certificación Google Cybersecurity Professional</div>
-                        <div class="timeline-subtitle">Google (Coursera)</div>
+                        <span class="timeline-date">Septiembre 2021 - Diciembre 2021</span>
+                        <h3 class="timeline-title">Asistente de Desarrollo (Voluntariado)</h3>
+                        <p class="timeline-subtitle">Organización X, Ciudad</p>
                         <div class="timeline-summary">
-                            <p>Habilidades en SIEM, análisis de logs (SQL, Python) y marcos de respuesta a incidentes (IR).</p>
+                            <p>Apoyo en el desarrollo y mantenimiento de la página web de una organización sin fines de lucro. Colaboración en la implementación de nuevas funcionalidades y la mejora de la interfaz de usuario. Experiencia práctica en entornos de desarrollo colaborativos.</p>
+                            <ul>
+                                <li>Mantenimiento de sitios web.</li>
+                                <li>Introducción a sistemas de gestión de contenido (CMS).</li>
+                                <li>Trabajo en equipo en un proyecto real.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="timeline-item right reveal-card">
                     <div class="timeline-content">
-                        <div class="timeline-date">2024</div>
-                        <div class="timeline-title">Certificación Microsoft Azure Fundamentals (AZ-900)</div>
-                        <div class="timeline-subtitle">Microsoft</div>
+                        <span class="timeline-date">Agosto 2020 - Junio 2021</span>
+                        <h3 class="timeline-title">Curso Online de Desarrollo Frontend</h3>
+                        <p class="timeline-subtitle">Plataforma Educativa Y</p>
                         <div class="timeline-summary">
-                            <p>Conocimiento de los conceptos de la nube, servicios de Azure, seguridad, privacidad y gobernanza.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item left reveal-card">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024</div>
-                        <div class="timeline-title">Certificación Python para Data Science y ML</div>
-                        <div class="timeline-subtitle">IBM (Coursera)</div>
-                        <div class="timeline-summary">
-                            <p>Uso de Python, Pandas, NumPy y Scikit-learn para análisis de datos y construcción de modelos de ML.</p>
+                            <p>Curso enfocado en las tecnologías fundamentales del desarrollo frontend: HTML, CSS y JavaScript. Aprendizaje de los principios de diseño web y desarrollo de proyectos prácticos para aplicar los conocimientos adquiridos.</p>
+                            <ul>
+                                <li>Dominio de HTML semántico y CSS moderno.</li>
+                                <li>Fundamentos de JavaScript y manipulación del DOM.</li>
+                                <li>Construcción de interfaces interactivas.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -306,51 +292,40 @@
     </section>
 
     <section id="contact" class="contact-section">
-        <div class="container reveal-card">
-            <h2 class="reveal-title text-gradient">Hablemos</h2>
-            <p>
-                Estoy buscando activamente nuevas oportunidades y me encantaría conectar.
-                <br>
-                Envíame un correo y hablemos sobre cómo puedo aportar valor a tu equipo.
-            </p>
-            <a href="mailto:osdaolfonabaco@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Enviar un Correo</a>
+        <div class="container">
+            <h2 class="reveal-title">Contacto</h2>
+            <p>¿Tienes un proyecto en mente o simplemente quieres saludar? No dudes en contactarme. Estoy abierto a nuevas oportunidades y colaboraciones.</p>
+            <a href="mailto:tu.email@example.com" class="btn btn-primary">Enviar Email</a>
+            <div class="social-links" style="margin-top: 2rem;">
+                <a href="https://linkedin.com/in/tu-perfil" target="_blank" style="font-size: 2rem; margin: 0 1rem;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/tu-usuario" target="_blank" style="font-size: 2rem; margin: 0 1rem;"><i class="fab fa-github"></i></a>
+                </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Oscar Olarte. Todos los derechos reservados.</p>
-                <div class="footer-links" style="font-size: 1.5rem; margin-top: 0.5rem;">
-                    <a href="https://www.linkedin.com/in/tu-usuario/" target="_blank" aria-label="LinkedIn" style="margin: 0 0.5rem;"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/osdaolfonabaco-beep" target="_blank" aria-label="GitHub" style="margin: 0 0.5rem;"><i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
+            <p>&copy; 2024 Oscar David Olarte Forero. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-content">
-            <button class="modal-close" id="modal-close" aria-label="Cerrar modal">&times;</button>
+            <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
             <div class="modal-body">
-                <h2 id="modal-title" class="text-gradient">Título del Proyecto</h2>
+                <h3 id="modal-title">Título del Proyecto</h3>
                 <div id="modal-image-placeholder">
-                    <span>(Imagen del Proyecto)</span>
-                </div>
+                    </div>
                 <div class="modal-tags" id="modal-tags">
                     </div>
-                <p id="modal-description">
-                    La descripción completa del proyecto irá aquí.
-                </p>
+                <p id="modal-description">Descripción detallada del proyecto.</p>
                 <div class="modal-links">
-                    <a href="#" id="modal-github-link" class="btn btn-primary" target="_blank">
-                        <i class="fa-brands fa-github"></i> Ver en GitHub
-                    </a>
-                </div>
+                    <a href="#" id="modal-github-link" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> Ver Código</a>
+                    </div>
             </div>
         </div>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>

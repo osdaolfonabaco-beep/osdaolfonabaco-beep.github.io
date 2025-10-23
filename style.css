@@ -13,13 +13,32 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-family); background-color: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+
+/* --- ANIMACIÓN DE FONDO (V15) --- */
+body { 
+    font-family: var(--font-family); 
+    background-color: var(--bg-dark); 
+    color: var(--text-primary); 
+    line-height: 1.6; 
+    /* Gradiente animado */
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a1a 25%, var(--bg-dark) 50%, #1a1a1a 75%, var(--bg-dark) 100%);
+    background-size: 400% 400%; /* Ajustar tamaño para movimiento */
+    animation: background-pan 30s ease infinite; /* Animación lenta y continua */
+}
+
+@keyframes background-pan {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+
 .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 section { padding: 5rem 0; border-bottom: 1px solid var(--border-color); overflow-x: hidden; }
 section:last-of-type { border-bottom: none; }
 h1, h2, h3 { margin-bottom: 1rem; line-height: 1.3; }
-h1 { font-size: 3rem; }
-h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; min-height: 1.3em; }
+h1 { font-size: 3rem; min-height: 1.3em; /* Espacio para animación scramble */}
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; min-height: 1.3em; /* Espacio para animación scramble */}
 h3 { font-size: 1.5rem; color: var(--color-primary); } 
 p { margin-bottom: 1rem; }
 a { color: var(--color-primary); text-decoration: none; }
@@ -58,10 +77,10 @@ a { color: var(--color-primary); text-decoration: none; }
 .mobile-nav-link.active-link { color: var(--color-primary); }
 
 /* --- Sección Hero --- */
-.hero { background-color: var(--bg-dark); height: 100vh; display: flex; align-items: center; text-align: center; padding-top: 60px; }
+.hero { background-color: transparent; /* Ahora el body tiene el fondo animado */ height: 100vh; display: flex; align-items: center; text-align: center; padding-top: 60px; }
 .hero-content { max-width: 800px; margin: 0 auto; }
 
-/* --- ESTADO INICIAL HERO (V14) --- */
+/* --- ESTADO INICIAL HERO --- */
 .hero-content > .fade-in { 
     opacity: 0; 
     transform: translateY(20px); 
@@ -72,11 +91,11 @@ a { color: var(--color-primary); text-decoration: none; }
     opacity: 1;
     transform: translateY(0);
 }
-/* Retrasos escalonados */
-.hero-content > .fade-in.hero-visible:nth-child(1) { transition-delay: 0.1s; }
-.hero-content > .fade-in.hero-visible:nth-child(2) { transition-delay: 0.2s; }
-.hero-content > .fade-in.hero-visible:nth-child(3) { transition-delay: 0.3s; }
-.hero-content > .fade-in.hero-visible:nth-child(4) { transition-delay: 0.4s; }
+/* Retrasos escalonados para elementos que no son H1 (H1 tiene scramble) */
+.hero-content > .fade-in.hero-visible:not(h1):nth-child(1) { transition-delay: 0.1s; } /* subtitle */
+.hero-content > .fade-in.hero-visible:not(h1):nth-child(2) { transition-delay: 0.2s; } /* description */
+.hero-content > .fade-in.hero-visible:not(h1):nth-child(3) { transition-delay: 0.3s; } /* buttons */
+
 
 .hero-subtitle { font-size: 1.5rem; font-weight: bold; color: var(--color-primary); margin-bottom: 1rem; }
 .hero-description { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem auto; }
@@ -94,8 +113,25 @@ a { color: var(--color-primary); text-decoration: none; }
 .project-image { height: 200px; background-size: cover; background-position: center; background-color: #333; border-bottom: 1px solid var(--border-color); transition: transform 0.3s ease-out; }
 .project-card:hover .project-image { transform: scale(1.05); }
 .project-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
-.project-details { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.4s ease-out, max-height 0.4s ease-out; }
-.project-card:hover .project-details { opacity: 1; max-height: 150px; }
+
+/* --- Detalles de Proyecto al Hover (V15 - Aseguramos visibilidad y altura) --- */
+.project-details { 
+    opacity: 0; 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin-top 0.4s ease-out; 
+    margin-top: 0; 
+    padding-top: 0;
+    border-top: 1px solid transparent; /* Para la transición del borde */
+}
+.project-card:hover .project-details { 
+    opacity: 1; 
+    max-height: 250px; /* Aumentado para más contenido */
+    margin-top: 1rem; 
+    padding-top: 1rem; 
+    border-top: 1px solid var(--border-color); 
+}
+
 .project-description { color: var(--text-secondary); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; text-overflow: ellipsis; margin-bottom: 1rem; }
 .project-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; }
 .project-tags li { background-color: var(--bg-light-dark); border: 1px solid var(--border-color); color: var(--text-secondary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; }
@@ -165,7 +201,25 @@ a { color: var(--color-primary); text-decoration: none; }
 .modal-close { position: absolute; top: 1rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--text-secondary); cursor: pointer; transition: color 0.3s ease; }
 .modal-close:hover { color: var(--color-primary); }
 .modal-body #modal-title { color: var(--color-primary); font-size: 2rem; margin-bottom: 1.5rem; }
-#modal-image-placeholder { width: 100%; height: 250px; background: var(--bg-dark); border: 1px dashed var(--border-color); border-radius: 8px; display: flex; justify-content: center; align-items: center; color: var(--text-secondary); margin-bottom: 1.5rem; }
+#modal-image-placeholder { 
+    width: 100%; 
+    height: 250px; 
+    background: var(--bg-dark); 
+    border: 1px dashed var(--border-color); 
+    border-radius: 8px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: var(--text-secondary); 
+    margin-bottom: 1.5rem; 
+    overflow: hidden; /* Asegura que la imagen no se salga */
+}
+#modal-image-placeholder img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* o 'cover' si prefieres que llene el espacio recortando */
+}
 .modal-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
 .modal-tags span { background-color: var(--bg-dark); border: 1px solid var(--border-color); color: var(--text-secondary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; }
 #modal-description { color: var(--text-primary); line-height: 1.7; margin-bottom: 2rem; }
@@ -187,6 +241,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--border-color) var(--bg-dark
     .nav-toggle.is-active i:before { content: '\f00d'; }
     .hero { height: auto; padding: 8rem 0 4rem 0; }
     .skills-grid { grid-template-columns: 1fr; }
+    /* Ocultar revelación en hover en móvil */
     .project-details, .skill-concepts, .timeline-summary { opacity: 1; max-height: 1000px; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); }
     .project-card:hover, .skill-category:hover, .timeline-item:hover .timeline-content { transform: none; box-shadow: none; }
     .modal-content { padding: 2rem; width: 95%; }
@@ -197,4 +252,3 @@ html { scrollbar-width: thin; scrollbar-color: var(--border-color) var(--bg-dark
     .timeline-item.left::before, .timeline-item.right::before { left: 60px; border-width: 10px 10px 10px 0; border-color: transparent var(--bg-light-dark) transparent transparent; }
     .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
 }
-

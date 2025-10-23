@@ -1,8 +1,8 @@
-// script.js (V14 - Corrección de Sincronía HTML/CSS/JS)
+// script.js (V15 - Animación H1 Scramble, Refinamientos)
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("Portafolio Oscar Olarte V14 cargado (Sincronización completa).");
+    console.log("Portafolio Oscar Olarte V15 cargado (H1 Scramble, Fondo CSS).");
 
     // --- 1. Animación de la Barra de Navegación ---
     const nav = document.querySelector('.navbar');
@@ -14,20 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 2. Animación de Entrada del "Hero" ---
-    // CORRECCIÓN: Se cambió de estilos en línea (el.style) a añadir una clase (.hero-visible)
-    // para trabajar CON el CSS (style.css, línea 104) y permitir los retrasos escalonados.
-    const heroElements = document.querySelectorAll('.hero-content > .fade-in');
-    heroElements.forEach((el) => {
-        // Forzamos un reflow (repintado) mínimo
-        void el.offsetWidth; 
-        
-        // Añadimos la clase que el CSS está esperando
-        el.classList.add('hero-visible');
-    });
-
-
-    // --- 3. FUNCIÓN: Animación de Títulos "Scramble" (Rápida) ---
+    // --- 2. FUNCIÓN: Animación de Títulos "Scramble" (Rápida) ---
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ*!#%&_";
     
     const scrambleAnimation = (element) => {
@@ -37,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const originalText = element.dataset.originalText;
         let iteration = 0;
         
+        // Limpiar intervalo previo si existe
         if (element.dataset.intervalId) {
             clearInterval(parseInt(element.dataset.intervalId));
         }
@@ -59,14 +47,24 @@ document.addEventListener('DOMContentLoaded', () => {
         element.dataset.intervalId = intervalId.toString(); 
     };
 
+    // --- 3. Animación de Entrada del "Hero" & Scroll Reveal con Scramble para H1 y H2 ---
+    // El H1 del Hero ahora también usa la animación scramble y es parte del observer.
+    const heroElements = document.querySelectorAll('.hero-content > .fade-in:not(h1)'); // Elementos que solo se desvanecen (subtítulo, descripción, botones)
+    const heroH1 = document.querySelector('.hero-content h1.fade-in'); // El H1 que tendrá scramble
 
-    // --- 4. Animación de "Scroll Reveal" (Re-activable) ---
+    // Activación inicial para los elementos que solo se desvanecen
+    heroElements.forEach((el) => {
+        void el.offsetWidth; // Forzar reflow
+        el.classList.add('hero-visible');
+    });
+
+    // Intersection Observer para las animaciones de scroll y el H1 del Hero
     const revealObserverOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
     
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                if (entry.target.classList.contains('reveal-title')) {
+                if (entry.target.classList.contains('reveal-title') || entry.target === heroH1) {
                     if (!entry.target.dataset.intervalId || entry.target.dataset.intervalId === 'null') {
                          scrambleAnimation(entry.target);
                     }
@@ -74,7 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     entry.target.classList.add('visible');
                 }
             } else {
-                if (entry.target.classList.contains('reveal-title')) {
+                // Si ya no es visible, resetea la animación para que pueda repetirse
+                if (entry.target.classList.contains('reveal-title') || entry.target === heroH1) {
                     if (entry.target.dataset.intervalId && entry.target.dataset.intervalId !== 'null') {
                         clearInterval(parseInt(entry.target.dataset.intervalId));
                         entry.target.dataset.intervalId = null;
@@ -91,17 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const revealObserver = new IntersectionObserver(revealCallback, revealObserverOptions);
     
-    const elementsToReveal = document.querySelectorAll('.reveal-card, .reveal-title');
+    // Incluimos el H1 del Hero en los elementos a observar
+    const elementsToReveal = document.querySelectorAll('.reveal-card, .reveal-title, .hero-content h1.fade-in');
     elementsToReveal.forEach(el => { revealObserver.observe(el); });
 
-    // --- 5. Lógica del Menú Móvil --- 
+
+    // --- 4. Lógica del Menú Móvil --- 
     const navToggle = document.getElementById('nav-toggle');
     const mobileNav = document.getElementById('mobile-nav');
     const navClose = document.getElementById('mobile-nav-close');
     const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-    // Esta lógica ahora funcionará porque los elementos existen en el HTML corregido.
-    if (navToggle && mobileNav && navClose && mobileLinks.length > 0) {
+    if (navToggle && mobileNav && navClose && mobileLinks) {
         navToggle.addEventListener('click', () => {
             mobileNav.classList.add('is-active');
             navToggle.classList.add('is-active'); 
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     } else { console.error("Error: No se encontraron elementos del menú móvil."); }
 
-    // --- 6. Lógica del Modal ---
+    // --- 5. Lógica del Modal ---
     const modalOverlay = document.getElementById('modal-overlay');
     const modalCloseBtn = document.getElementById('modal-close');
     const projectButtons = document.querySelectorAll('.btn-project-modal');
@@ -126,24 +126,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalDescription = document.getElementById('modal-description');
     const modalTags = document.getElementById('modal-tags');
     const modalGithubLink = document.getElementById('modal-github-link');
+    const modalImagePlaceholder = document.getElementById('modal-image-placeholder'); // Nuevo: placeholder para imagen
 
-    // Esta lógica ahora funcionará porque los elementos existen en el HTML corregido.
-    if (modalOverlay && modalCloseBtn && projectButtons.length > 0 && modalTitle && modalDescription && modalTags && modalGithubLink) {
+    if (modalOverlay && modalCloseBtn && projectButtons.length > 0 && modalTitle && modalDescription && modalTags && modalGithubLink && modalImagePlaceholder) {
         const openModal = (projectCard) => {
             const title = projectCard.dataset.title;
             const description = projectCard.dataset.description;
             const githubUrl = projectCard.dataset.githubUrl;
             const tags = JSON.parse(projectCard.dataset.tags); 
+            const imageUrl = projectCard.dataset.imageUrl || 'https://via.placeholder.com/600x400.png?text=Imagen+del+Proyecto'; // Usa imagen del dataset o un placeholder
 
             modalTitle.textContent = title;
             modalDescription.textContent = description;
             modalGithubLink.href = githubUrl;
+            
+            // Si quieres que el botón "Ver Código" se oculte si no hay URL
+            if (githubUrl) {
+                modalGithubLink.style.display = 'inline-block';
+            } else {
+                modalGithubLink.style.display = 'none';
+            }
+
             modalTags.innerHTML = ''; 
             tags.forEach(tag => {
                 const tagElement = document.createElement('span');
                 tagElement.textContent = tag;
                 modalTags.appendChild(tagElement);
             });
+            
+            // Asigna la imagen al placeholder
+            modalImagePlaceholder.innerHTML = `<img src="${imageUrl}" alt="${title}" style="max-width:100%; height:auto; border-radius:8px;">`;
+
             modalOverlay.classList.add('is-active');
         };
 
@@ -163,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     } else { console.error("Error: No se encontraron elementos del modal."); }
 
-    // --- 7. Lógica de Navegación Activa ---
+    // --- 6. Lógica de Navegación Activa ---
     const sections = document.querySelectorAll('section[id]');
     const allNavLinks = document.querySelectorAll('.nav-menu a, .mobile-nav-menu a');
 
