@@ -28,7 +28,16 @@
     </nav>
 
     <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-close" id="mobile-nav-close">
+            <i class="fa-solid fa-xmark"></i>
         </div>
+        <ul class="mobile-nav-menu">
+            <li><a href="#hero" class="mobile-nav-link">Inicio</a></li>
+            <li><a href="#projects" class="mobile-nav-link">Proyectos</a></li>
+            <li><a href="#skills" class="mobile-nav-link">Habilidades</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contacto</a></li>
+        </ul>
+    </div>
 
     <header class="hero" id="hero">
         <div class="container hero-content">
@@ -125,10 +134,67 @@
         </div>
     </section>
 
-    <section id="skills" class="skills-section">...</section>
-    <section id="contact" class="contact-section">...</section>
-    <footer class="footer">...</footer>
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="reveal">Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <h4>Lenguajes y Core</h4>
+                    <ul>
+                        <li><i class="fa-brands fa-python"></i> Python</li>
+                        <li><i class="fa-solid fa-database"></i> SQL / NoSQL</li>
+                        <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
+                        <li><a href="httpsExample" style="color: var(--text-secondary);"><i class="fa-solid fa-terminal"></i> Bash / Shell</a></li>
+                    </ul>
+                </div>
+                <div class="skill-category reveal">
+                    <h4>Ciberseguridad</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-shield-halved"></i> Análisis de Logs (SIEM)</li>
+                        <li><i class="fa-solid fa-bug"></i> Respuesta a Incidentes (IR)</li>
+                        <li><i class="fa-solid fa-lock"></i> Seguridad Ofensiva / Pentesting</li>
+                        <li><i class="fa-solid fa-network-wired"></i> Seguridad de Redes</li>
+                    </ul>
+                </div>
+                <div class="skill-category reveal">
+                    <h4>IA y Datos</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-robot"></i> Machine Learning (Scikit-learn)</li>
+                        <li><i class="fa-solid fa-brain"></i> Deep Learning (TensorFlow/Keras)</li>
+                        <li><i class="fa-solid fa-file-lines"></i> NLP (Hugging Face)</li>
+                        <li><i class="fa-solid fa-chart-simple"></i> Pandas & NumPy</li>
+                    </ul>
+                </div>
+                <div class="skill-category reveal">
+                    <h4>Cloud y DevOps</h4>
+                    <ul>
+                        <li><i class="fa-brands fa-aws"></i> AWS (Lambda, S3, EC2)</li>
+                        <li><i class="fa-brands fa-docker"></i> Docker</li>
+                        <li><i class="fa-solid fa-infinity"></i> CI/CD (GitHub Actions)</li>
+                        <li><i class="fa-solid fa-server"></i> Infraestructura como Código (Terraform)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="contact" class="contact-section">
+        <div class="container reveal">
+            <h2>Hablemos</h2>
+            <p>
+                Estoy buscando activamente nuevas oportunidades y me encantaría conectar.
+                <br>
+                Envíame un correo y hablemos sobre cómo puedo aportar valor a tu equipo.
+            </p>
+            <a href="mailto:osdaolfonabaco@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Enviar un Correo</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Oscar David Olarte Forero. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-content" id="modal-content">
@@ -143,7 +209,7 @@
                 <p id="modal-description"></p>
                 <div class="modal-links">
                     <a href="#" id="modal-github-link" target="_blank" class="btn btn-primary"><i class="fa-brands fa-github"></i> Ver Código</a>
-                    </div>
+                </div>
             </div>
         </div>
     </div>

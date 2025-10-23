@@ -7,7 +7,6 @@
     --color-primary: #00aaff; /* Un azul eléctrico como acento */
     --color-primary-hover: #0088cc;
     --border-color: #333333;
-    /* FUENTE ACTUALIZADA */
     --font-family: 'Inter', sans-serif; 
 }
 
@@ -264,10 +263,17 @@ a { color: var(--color-primary); text-decoration: none; }
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* ================================== */
+/* --- TU NUEVO EFECTO DE HOVER --- */
+/* ================================== */
 .project-card:hover {
     transform: translateY(-8px); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
+                /* Esta es la línea nueva: un brillo blanco sutil */
+                0 0 20px rgba(255, 255, 255, 0.15);
 }
+
 .project-image {
     height: 200px;
     background-size: cover;
@@ -483,8 +489,6 @@ a { color: var(--color-primary); text-decoration: none; }
     border-radius: 8px;
     display: flex;
     justify-content: center;
-    /* --- AQUÍ ESTABA EL ERROR --- */
-    /* Corregido de 'align: items' a 'align-items: center' */
     align-items: center;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
