@@ -269,15 +269,18 @@ a { color: var(--color-primary); text-decoration: none; }
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* --- MODIFICACIÓN V7: CAMBIADO a 0.4s para un zoom más suave --- */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project-card:hover {
-    /* --- MODIFICACIÓN V6: AÑADIDO 'scale(1.05)' --- */
-    transform: translateY(-8px) scale(1.05); 
+    /* --- MODIFICACIÓN V7: CAMBIADO A 10% (scale(1.1)) --- */
+    transform: translateY(-8px) scale(1.1); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
                 /* Brillo morado ajustado */
                 0 0 20px rgba(179, 102, 255, 0.2); 
+    z-index: 10; /* Se asegura que la tarjeta se ponga por encima de las otras */
+    position: relative; /* Necesario para que z-index funcione */
 }
 
 .project-image {
@@ -289,7 +292,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: transform 0.3s ease-out;
 }
 .project-card:hover .project-image {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Mantenemos este zoom sutil en la imagen */
 }
 .project-content {
     padding: 1.5rem;
@@ -353,12 +356,15 @@ a { color: var(--color-primary); text-decoration: none; }
     padding: 2rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* --- MODIFICACIÓN V7: CAMBIADO a 0.4s para un zoom más suave --- */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .skill-category:hover {
-    /* --- MODIFICACIÓN V6: AÑADIDO 'scale(1.05)' --- */
-    transform: translateY(-5px) scale(1.05);
+    /* --- MODIFICACIÓN V7: CAMBIADO A 10% (scale(1.1)) --- */
+    transform: translateY(-5px) scale(1.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); /* Brillo en hover */
+    z-index: 10; /* Se asegura que la tarjeta se ponga por encima de las otras */
+    position: relative; /* Necesario para que z-index funcione */
 }
 
 .skill-category h4 {
