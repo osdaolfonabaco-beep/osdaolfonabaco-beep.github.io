@@ -1,6 +1,3 @@
-/* --- Importación de Fuentes --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap');
-
 /* --- Configuración Global y Variables --- */
 :root {
     --bg-dark: #121212;
@@ -9,17 +6,13 @@
     --text-secondary: #aaaaaa;
 
     /* --- PALETA V8: AZUL (Primario) + NEÓN (Acentos) --- */
-    --color-primary: #00aaff; /* Azul Tech */
-    --color-primary-hover: #0088cc; /* Azul Hover */
+    --color-primary: #00aaff; /* Azul Tech (Restaurado) */
+    --color-primary-hover: #0088cc; /* Azul Hover (Restaurado) */
     --color-accent-purple: #B366FF; /* Morado Neón (Acento 1) */
     --color-accent-green: #00FFAA; /* Verde Neón (Acento 2) */
     
     --border-color: #333333;
-    --font-family: 'Inter', sans-serif;
-    
-    /* --- NUEVAS VARIABLES (V9) --- */
-    --font-mono: 'Roboto Mono', monospace; /* Fuente de interfaz "tech" */
-    --shadow-bloom-primary: rgba(0, 170, 255, 0.15); /* Resplandor azul suave */
+    --font-family: 'Inter', sans-serif; 
 }
 
 * {
@@ -34,9 +27,7 @@ html {
 
 body {
     font-family: var(--font-family);
-    /* --- MODIFICACIÓN: Fondo más profundo --- */
     background-color: var(--bg-dark);
-    background-image: radial-gradient(ellipse 80% 100% at 50% -10%, rgba(255, 255, 255, 0.03), transparent 60%);
     color: var(--text-primary);
     line-height: 1.6;
 }
@@ -49,7 +40,8 @@ body {
 
 section {
     padding: 5rem 0;
-    border-bottom: 1px solid var(--border-color); /* Separadores sutiles */
+    border-bottom: 1px solid var(--border-color); 
+    overflow-x: hidden; /* Previene overflow de animaciones */
 }
 section:last-of-type {
     border-bottom: none;
@@ -63,7 +55,7 @@ h1, h2, h3 {
 
 h1 { font-size: 3rem; }
 h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
-h3 { font-size: 1.5rem; color: var(--color-primary); } /* Títulos H3 en azul */
+h3 { font-size: 1.5rem; color: var(--color-primary); }
 p { margin-bottom: 1rem; }
 a { color: var(--color-primary); text-decoration: none; }
 
@@ -83,7 +75,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-primary:hover {
     background-color: var(--color-primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px var(--shadow-bloom-primary); /* Sombra suave */
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
 }
 .btn-secondary {
     background-color: transparent;
@@ -93,7 +85,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-secondary:hover {
     background-color: var(--color-primary);
     color: #fff;
-    box-shadow: 0 0 15px var(--shadow-bloom-primary); /* Sombra suave */
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
 }
 
 /* --- Barra de Navegación --- */
@@ -108,8 +100,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: background-color 0.3s ease, border-color 0.3s ease; 
 }
 .navbar.navbar-scrolled {
-    background-color: rgba(30, 30, 30, 0.85); /* Fondo traslúcido al hacer scroll */
-    backdrop-filter: blur(8px);
+    background-color: var(--bg-light-dark);
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -150,17 +141,15 @@ a { color: var(--color-primary); text-decoration: none; }
 .nav-menu a:hover::after {
     transform: scaleX(1); 
 }
-
-/* --- ESTILO DE NAVEGACIÓN ACTIVA (SIN CAMBIOS) --- */
 .nav-menu a.active-link {
-    color: var(--color-primary); /* Resalta el enlace activo en azul */
+    color: var(--color-primary); 
 }
 .nav-menu a.active-link::after {
-    transform: scaleX(1); /* Muestra el subrayado en el enlace activo */
+    transform: scaleX(1); 
 }
 
 
-/* --- BOTÓN HAMBURGUESA (SIN CAMBIOS) --- */
+/* --- BOTÓN HAMBURGUESA --- */
 .nav-toggle {
     display: none; 
     font-size: 1.5rem;
@@ -169,7 +158,7 @@ a { color: var(--color-primary); text-decoration: none; }
     z-index: 1100;
 }
 
-/* --- MENÚ OVERLAY MÓVIL (SIN CAMBIOS) --- */
+/* --- MENÚ OVERLAY MÓVIL --- */
 .mobile-nav {
     position: fixed;
     top: 0;
@@ -217,7 +206,7 @@ a { color: var(--color-primary); text-decoration: none; }
     color: var(--color-primary);
 }
 .mobile-nav-link.active-link {
-    color: var(--color-primary);
+    color: var(--color-primary); 
 }
 
 
@@ -234,51 +223,43 @@ a { color: var(--color-primary); text-decoration: none; }
     max-width: 800px;
     margin: 0 auto;
 }
-
-/* --- ELIMINADO: .hero-content > .fade-in --- */
-/* La animación de entrada ahora es manejada por script.js */
-
+.hero-content > .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.hero-content > .fade-in:nth-child(1) { transition-delay: 0.1s; }
+.hero-content > .fade-in:nth-child(2) { transition-delay: 0.2s; }
+.hero-content > .fade-in:nth-child(3) { transition-delay: 0.3s; }
+.hero-content > .fade-in:nth-child(4) { transition-delay: 0.4s; }
 .hero-subtitle {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--color-primary);
     margin-bottom: 1rem;
-    /* --- Se añade altura mínima para evitar "salto" de layout con el script --- */
-    min-height: 1.5em; 
 }
 .hero-description {
     font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 2rem auto;
-    
-    /* --- Añadida transición suave para la entrada del fade-in del JS --- */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out 1.8s, transform 0.6s ease-out 1.8s;
-}
-.hero-links {
-    /* --- Añadida transición suave para la entrada del fade-in del JS --- */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out 2.0s, transform 0.6s ease-out 2.0s;
 }
 .hero-links a {
     margin: 0.5rem;
 }
 
-/* --- TEXTO GRADIENTE (MODIFICADO: Paleta más sobria) --- */
+/* --- TEXTO GRADIENTE (MORADO, BLANCO Y VERDE) --- */
 .text-gradient {
-    background: linear-gradient(90deg, var(--color-accent-purple), var(--color-primary), var(--color-accent-purple));
-    background-size: 200% auto;
+    background: linear-gradient(90deg, var(--color-accent-purple), #fff, var(--color-accent-green), var(--color-accent-purple));
+    background-size: 250% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-flow 6s linear infinite; /* Animación más lenta y suave */
+    animation: gradient-flow 5s linear infinite;
 }
 
 @keyframes gradient-flow {
-    0% { background-position: 200% center; }
+    0% { background-position: 250% center; }
     100% { background-position: 0% center; }
 }
 
@@ -299,17 +280,13 @@ a { color: var(--color-primary); text-decoration: none; }
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    /* --- MODIFICACIÓN: Transición más suave y enfocada --- */
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    will-change: transform, box-shadow, border-color; /* Optimización de performance */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project-card:hover {
-    /* --- MODIFICACIÓN: Efecto "bloom" sutil, menos "scale" --- */
-    transform: translateY(-6px) scale(1.02); 
-    border-color: var(--color-primary-hover);
+    transform: translateY(-8px) scale(1.1); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
-                0 0 25px var(--shadow-bloom-primary); /* Resplandor suave */
+                0 0 20px rgba(0, 170, 255, 0.2); 
     z-index: 10; 
     position: relative; 
 }
@@ -331,19 +308,47 @@ a { color: var(--color-primary); text-decoration: none; }
     display: flex;
     flex-direction: column;
 }
+
+/* --- ESTILOS DE REVELACIÓN (V10) --- */
+.project-details {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease-out, max-height 0.4s ease-out;
+}
+.project-card:hover .project-details {
+    opacity: 1;
+    max-height: 150px; /* Ajusta esta altura según sea necesario */
+}
 .project-description {
     color: var(--text-secondary);
-    flex-grow: 1;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 1rem;
 }
-
+.project-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}
+.project-tags li {
+    background-color: var(--bg-light-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
 .project-links {
-    margin-top: auto;
+    margin-top: auto; /* Empuja el botón hacia abajo */
+    padding-top: 1rem; /* Añade espacio cuando el contenido se revela */
 }
 .btn-project-modal {
     background: transparent;
@@ -373,15 +378,11 @@ a { color: var(--color-primary); text-decoration: none; }
     padding: 2rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    /* --- MODIFICACIÓN: Transición suave (igual a proyectos) --- */
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    will-change: transform, box-shadow, border-color;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .skill-category:hover {
-    /* --- MODIFICACIÓN: Efecto "bloom" sutil (igual a proyectos) --- */
-    transform: translateY(-6px) scale(1.02);
-    border-color: var(--color-primary-hover);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 20px var(--shadow-bloom-primary); 
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); 
     z-index: 10;
     position: relative;
 }
@@ -392,14 +393,13 @@ a { color: var(--color-primary); text-decoration: none; }
     border-bottom: 2px solid var(--color-primary);
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
-    /* --- MODIFICACIÓN: Aplicada fuente mono --- */
-    font-family: var(--font-mono);
-    font-weight: 600;
 }
-.skill-category ul {
+.skill-category .skill-list {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
-.skill-category li {
+.skill-category .skill-list li {
     font-size: 1rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
@@ -408,43 +408,62 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 .skill-category i {
-    color: var(--color-accent-green); /* Iconos en Verde Neón */
+    color: var(--color-accent-green); 
     margin-right: 0.75rem;
     width: 20px; 
     text-align: center;
     transition: color 0.3s ease, transform 0.3s ease;
 }
-
-/* --- ANIMACIÓN STAGGER (SIN CAMBIOS) --- */
-.skill-category.visible li {
+.skill-category.visible .skill-list li {
     opacity: 1;
     transform: translateX(0);
 }
-.skill-category.visible li:nth-child(1) { transition-delay: 0.1s; }
-.skill-category.visible li:nth-child(2) { transition-delay: 0.2s; }
-.skill-category.visible li:nth-child(3) { transition-delay: 0.3s; }
-.skill-category.visible li:nth-child(4) { transition-delay: 0.4s; }
+.skill-category.visible .skill-list li:nth-child(1) { transition-delay: 0.1s; }
+.skill-category.visible .skill-list li:nth-child(2) { transition-delay: 0.2s; }
+.skill-category.visible .skill-list li:nth-child(3) { transition-delay: 0.3s; }
+.skill-category.visible .skill-list li:nth-child(4) { transition-delay: 0.4s; }
 
-/* Efecto hover en cada habilidad individual */
-.skill-category li:hover {
+.skill-category .skill-list li:hover {
     color: var(--text-primary);
 }
-.skill-category li:hover i {
-    color: var(--color-accent-purple); /* Cambia a Morado Neón en hover */
+.skill-category .skill-list li:hover i {
+    color: var(--color-accent-purple); 
     transform: scale(1.2);
 }
 
+/* --- ESTILOS DE REVELACIÓN (V10) --- */
+.skill-concepts {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease-out, max-height 0.4s ease-out 0.1s;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+}
+.skill-category:hover .skill-concepts {
+    opacity: 1;
+    max-height: 100px;
+}
+.skill-concepts span {
+    display: inline-block;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 0.25rem;
+}
 
-/* ================================== */
+
 /* --- SECCIÓN: EXPERIENCIA Y FORMACIÓN --- */
-/* ================================== */
 .timeline {
     position: relative;
     max-width: 750px;
     margin: 0 auto;
     padding: 2rem 0;
 }
-
 .timeline::after {
     content: '';
     position: absolute;
@@ -472,7 +491,7 @@ a { color: var(--color-primary); text-decoration: none; }
     top: 15px;
     border-radius: 50%;
     z-index: 1;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 .timeline-item.left {
     left: 0;
@@ -513,23 +532,22 @@ a { color: var(--color-primary); text-decoration: none; }
     border: 1px solid var(--border-color);
     position: relative;
     border-radius: 8px;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+/* --- EFECTO HOVER EN EXPERIENCIA (V10) --- */
 .timeline-item:hover .timeline-content {
-    border-color: var(--border-color); /* Mantenemos borde sutil */
-    box-shadow: 0 0 20px var(--shadow-bloom-primary); /* Brillo azul suave */
+    transform: scale(1.05); /* Zoom sutil */
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.2); 
 }
 .timeline-item:hover::after {
     background-color: var(--color-primary);
-    box-shadow: 0 0 15px var(--shadow-bloom-primary);
 }
 
 .timeline-date {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-accent-purple); /* Fechas en Morado Neón */
+    color: var(--color-accent-purple); 
     margin-bottom: 0.5rem;
-    font-family: var(--font-mono); /* Aplicada fuente mono */
 }
 .timeline-title {
     font-size: 1.2rem;
@@ -565,16 +583,18 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 
 /* --- CLASES DE ANIMACIÓN DE SCROLL (ACTIVADAS POR JS) --- */
+/* --- ESTADO INICIAL DE LA ANIMACIÓN DE RE-INGRESO --- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+/* --- ESTADO VISIBLE (AÑADIDO POR JS) --- */
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
-/* Stagger para grids (SIN CAMBIOS) */
+/* Stagger para grids (se re-activará) */
 .projects-grid .reveal.visible:nth-child(1) { transition-delay: 0s; }
 .projects-grid .reveal.visible:nth-child(2) { transition-delay: 100ms; }
 .projects-grid .reveal.visible:nth-child(3) { transition-delay: 200ms; }
@@ -662,8 +682,6 @@ a { color: var(--color-primary); text-decoration: none; }
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.85rem;
-    /* --- MODIFICACIÓN: Aplicada fuente mono --- */
-    font-family: var(--font-mono);
 }
 #modal-description {
     color: var(--text-primary);
@@ -720,6 +738,16 @@ html {
         grid-template-columns: 1fr;
     }
 
+    /* Ocultar revelación en hover en móvil (suele ser problemático) */
+    .project-details, .skill-concepts {
+        opacity: 1;
+        max-height: 1000px; /* Asegura que sea visible */
+    }
+    .project-card:hover, .skill-category:hover {
+        transform: none; /* Desactiva el zoom en móvil */
+    }
+
+
     .modal-content {
         padding: 2rem;
         width: 95%;
@@ -728,7 +756,7 @@ html {
         font-size: 1.5rem;
     }
     
-    /* --- Ajustes de Timeline para Móvil (SIN CAMBIOS) --- */
+    /* --- Ajustes de Timeline para Móvil --- */
     .timeline::after {
         left: 31px;
     }

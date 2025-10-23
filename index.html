@@ -60,6 +60,7 @@
         <div class="container">
             <h2 class="reveal text-gradient">Proyectos Destacados</h2>
             <div class="projects-grid">
+                
                 <div class="project-card reveal" 
                      data-title="Autonomous SOC Analyst Agent"
                      data-description="Un agente de IA que automatiza por completo el flujo de un analista SOC Nivel 1. Ingiere logs de AWS CloudTrail, detecta anomalías de inicio de sesión y realiza un enriquecimiento automático de IPs (Geo-location y VirusTotal). Finalmente, utiliza LangChain y Claude 3 para generar informes de incidentes listos para ejecutivos, reduciendo drásticamente la fatiga de alertas."
@@ -69,14 +70,22 @@
                     <div class="project-image" style="background-image: url('URL_DE_TU_IMAGEN_1.png');"></div>
                     <div class="project-content">
                         <h3 class="project-title">Autonomous SOC Analyst Agent</h3>
-                        <p class="project-description">
-                            Un agente de IA que automatiza por completo el flujo de un analista SOC Nivel 1. Ingiere logs de AWS CloudTrail...
-                        </p>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Un agente de IA que automatiza por completo el flujo de un analista SOC Nivel 1...
+                            </p>
+                            <ul class="project-tags">
+                                <li>Python</li>
+                                <li>IA (LangChain)</li>
+                                <li>AWS</li>
+                            </ul>
+                        </div>
                         <div class="project-links">
                             <button class="btn-project-modal">Ver Detalles</button>
                         </div>
                     </div>
                 </div>
+                
                 <div class="project-card reveal"
                      data-title="AWS Serverless Log Analyzer"
                      data-description="Un pipeline de análisis de seguridad 100% serverless y automatizado en AWS, diseñado para detectar actividad sospechosa. Toda la infraestructura (S3, Lambda, ECR, IAM) es desplegada de forma consistente y repetible utilizando Terraform (IaC). Al subir un log a S3, un contenedor Docker en Lambda es invocado para analizar las IPs más frecuentes y reportar los hallazgos a CloudWatch."
@@ -86,14 +95,22 @@
                     <div class="project-image" style="background-image: url('URL_DE_TU_IMAGEN_2.png');"></div>
                     <div class="project-content">
                         <h3 class="project-title">AWS Serverless Log Analyzer</h3>
-                        <p class="project-description">
-                            Un pipeline de análisis de seguridad 100% serverless y automatizado en AWS, diseñado para detectar actividad sospechosa...
-                        </p>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Un pipeline de análisis de seguridad 100% serverless y automatizado en AWS...
+                            </p>
+                            <ul class="project-tags">
+                                <li>Terraform (IaC)</li>
+                                <li>AWS</li>
+                                <li>Docker</li>
+                            </ul>
+                        </div>
                         <div class="project-links">
                             <button class="btn-project-modal">Ver Detalles</button>
                         </div>
                     </div>
                 </div>
+
                 <div class="project-card reveal"
                      data-title="LogSentinel: Cloud Security Pipeline"
                      data-description="Un pipeline de datos de seguridad de extremo a extremo que transforma logs brutos en inteligencia accionable. El sistema ingiere datos desde AWS S3, los enriquece en tiempo real contra APIs de inteligencia de amenazas (como AbuseIPDB) y persiste los hallazOS en una base de datos SQL para análisis histórico. Demuestra un dominio completo del ciclo de vida del dato de seguridad, desde la generación de datasets a gran escala (con Pandas) hasta la consulta final con SQL."
@@ -103,14 +120,22 @@
                     <div class="project-image" style="background-image: url('URL_DE_TU_IMAGEN_3.png');"></div>
                     <div class="project-content">
                         <h3 class="project-title">LogSentinel: Cloud Security Pipeline</h3>
-                        <p class="project-description">
-                            Un pipeline de datos de seguridad de extremo a extremo que transforma logs brutos en inteligencia accionable...
-                        </p>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Un pipeline de datos de seguridad de extremo a extremo que transforma logs brutos...
+                            </p>
+                            <ul class="project-tags">
+                                <li>Python</li>
+                                <li>Data Engineering</li>
+                                <li>SQL</li>
+                            </ul>
+                        </div>
                         <div class="project-links">
                             <button class="btn-project-modal">Ver Detalles</button>
                         </div>
                     </div>
                 </div>
+
                 <div class="project-card reveal"
                      data-title='"Superhuman" AI Security Gateway'
                      data-description="Un gateway de seguridad de nivel de producción (Docker/FastAPI) que actúa como un 'Guardia de IA' entre los usuarios y cualquier LLM. Implementa una defensa en profundidad: analiza los prompts de *entrada* para bloquear ataques de Inyección de Prompts y escanea las respuestas de *salida* para detectar y redactar PII (DLP) y contenido tóxico, resolviendo el mayor riesgo en la adopción empresarial de la IA."
@@ -120,9 +145,16 @@
                     <div class="project-image" style="background-image: url('URL_DE_TU_IMAGEN_4.png');"></div>
                     <div class="project-content">
                         <h3 class="project-title">"Superhuman" AI Security Gateway</h3>
-                        <p class="project-description">
-                            Un gateway de seguridad de nivel de producción (Docker/FastAPI) que actúa como un 'Guardia de IA' entre los usuarios...
-                        </p>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Un gateway de seguridad de nivel de producción (Docker/FastAPI) que actúa como un 'Guardia de IA'...
+                            </p>
+                            <ul class="project-tags">
+                                <li>IA Security</li>
+                                <li>LLM</li>
+                                <li>FastAPI</li>
+                            </ul>
+                        </div>
                         <div class="project-links">
                             <button class="btn-project-modal">Ver Detalles</button>
                         </div>
@@ -136,49 +168,77 @@
         <div class="container">
             <h2 class="reveal text-gradient">Habilidades Técnicas</h2>
             <div class="skills-grid">
+                
                 <div class="skill-category reveal">
                     <h4>Lenguajes y Core</h4>
-                    <ul>
+                    <ul class="skill-list">
                         <li><i class="fa-brands fa-python"></i> Python</li>
                         <li><i class="fa-solid fa-database"></i> SQL / NoSQL</li>
                         <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
                         <li><i class="fa-solid fa-terminal"></i> Bash / Shell</li>
                     </ul>
+                    <div class="skill-concepts">
+                        <span>Pandas</span>
+                        <span>FastAPI</span>
+                        <span>Automatización</span>
+                    </div>
                 </div>
+                
                 <div class="skill-category reveal">
                     <h4>Ciberseguridad</h4>
-                    <ul>
-                        <li><i class="fa-solid fa-shield-halved"></i> Análisis de Logs (SIEM)</li>
-                        <li><i class="fa-solid fa-bug"></i> Respuesta a Incidentes (IR)</li>
-                        <li><i class="fa-solid fa-lock"></i> Seguridad Ofensiva / Pentesting</li>
+                    <ul class="skill-list">
+                        <li><i class="fa-solid fa-shield-halved"></i> Análisis de Logs</li>
+                        <li><i class="fa-solid fa-bug"></i> Respuesta a Incidentes</li>
+                        <li><i class="fa-solid fa-lock"></i> Seguridad Ofensiva</li>
                         <li><i class="fa-solid fa-network-wired"></i> Seguridad de Redes</li>
                     </ul>
+                    <div class="skill-concepts">
+                        <span>SIEM</span>
+                        <span>Pentesting</span>
+                        <span>IAM</span>
+                        <span>Malware Analysis</span>
+                    </div>
                 </div>
+                
                 <div class="skill-category reveal">
                     <h4>IA y Datos</h4>
-                    <ul>
-                        <li><i class="fa-solid fa-robot"></i> Machine Learning (Scikit-learn)</li>
-                        <li><i class="fa-solid fa-brain"></i> Deep Learning (TensorFlow/Keras)</li>
-                        <li><i class="fa-solid fa-file-lines"></i> NLP (Hugging Face)</li>
-                        <li><i class="fa-solid fa-chart-simple"></i> Pandas & NumPy</li>
+                    <ul class="skill-list">
+                        <li><i class="fa-solid fa-robot"></i> Machine Learning</li>
+                        <li><i class="fa-solid fa-brain"></i> Deep Learning</li>
+                        <li><i class="fa-solid fa-file-lines"></i> NLP (LLMs)</li>
+                        <li><i class="fa-solid fa-chart-simple"></i> Data Engineering</li>
                     </ul>
+                    <div class="skill-concepts">
+                        <span>Scikit-learn</span>
+                        <span>LangChain</span>
+                        <span>Pandas</span>
+                        <span>Airflow</span>
+                    </div>
                 </div>
+                
                 <div class="skill-category reveal">
                     <h4>Cloud y DevOps</h4>
-                    <ul>
-                        <li><i class="fa-brands fa-aws"></i> AWS (Lambda, S3, EC2)</li>
+                    <ul class="skill-list">
+                        <li><i class="fa-brands fa-aws"></i> AWS</li>
                         <li><i class="fa-brands fa-docker"></i> Docker</li>
-                        <li><i class="fa-solid fa-infinity"></i> CI/CD (GitHub Actions)</li>
-                        <li><i class="fa-solid fa-server"></i> Infraestructura como Código (Terraform)</li>
+                        <li><i class="fa-solid fa-infinity"></i> CI/CD</li>
+                        <li><i class="fa-solid fa-server"></i> Terraform (IaC)</li>
                     </ul>
+                    <div class="skill-concepts">
+                        <span>Lambda</span>
+                        <span>S3</span>
+                        <span>GitHub Actions</span>
+                        <span>Kubernetes</span>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </section>
 
     <section id="experience" class="experience-section">
         <div class="container">
-            <h2 class="reveal">Experiencia y Formación</h2>
+            <h2 class="reveal text-gradient">Experiencia y Formación</h2>
             <div class="timeline">
                 
                 <div class="timeline-item left reveal">
@@ -188,7 +248,6 @@
                         <div class="timeline-subtitle">Corporación Universitaria Minuto de Dios</div>
                     </div>
                 </div>
-
                 <div class="timeline-item right reveal">
                     <div class="timeline-content">
                         <div class="timeline-date">2024</div>
@@ -196,7 +255,6 @@
                         <div class="timeline-subtitle">Amazon Web Services</div>
                     </div>
                 </div>
-                
                 <div class="timeline-item left reveal">
                     <div class="timeline-content">
                         <div class="timeline-date">2024</div>
@@ -204,7 +262,6 @@
                         <div class="timeline-subtitle">Google (Coursera)</div>
                     </div>
                 </div>
-
                 <div class="timeline-item right reveal">
                     <div class="timeline-content">
                         <div class="timeline-date">2024</div>
@@ -212,7 +269,6 @@
                         <div class="timeline-subtitle">Microsoft</div>
                     </div>
                 </div>
-
                 <div class="timeline-item left reveal">
                     <div class="timeline-content">
                         <div class="timeline-date">2024</div>
@@ -227,7 +283,7 @@
 
     <section id="contact" class="contact-section">
         <div class="container reveal">
-            <h2>Hablemos</h2>
+            <h2 class="reveal text-gradient">Hablemos</h2>
             <p>
                 Estoy buscando activamente nuevas oportunidades y me encantaría conectar.
                 <br>
@@ -252,7 +308,7 @@
                     <p>(Aquí irá la imagen del proyecto)</p>
                 </div>
                 <div class="modal-tags" id="modal-tags">
-                    </div>
+                </div>
                 <p id="modal-description"></p>
                 <div class="modal-links">
                     <a href="#" id="modal-github-link" target="_blank" class="btn btn-primary"><i class="fa-brands fa-github"></i> Ver Código</a>
