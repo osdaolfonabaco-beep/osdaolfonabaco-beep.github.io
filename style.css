@@ -5,10 +5,10 @@
     --text-primary: #e0e0e0;
     --text-secondary: #aaaaaa;
 
-    /* --- CAMBIO: NUEVA PALETA "CYBER BLUE" --- */
-    --color-primary: #00FFFF; /* Azul Cian Eléctrico */
-    --color-primary-hover: #B3FFFF; /* Cian más claro para hover */
-    --color-accent: #80FFD5; /* Mantenemos el verde menta, combina perfecto */
+    /* --- PALETA "CYBERPUNK NEON" REFINADA (V5.1) --- */
+    --color-primary: #B366FF; /* Morado Neón (más claro) */
+    --color-primary-hover: #D6A3FF; /* Morado más claro para hover */
+    --color-accent: #00FFAA; /* Verde Neón para acentos */
     
     --border-color: #333333;
     --font-family: 'Inter', sans-serif; 
@@ -39,7 +39,7 @@ body {
 
 section {
     padding: 5rem 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color); /* Separadores sutiles */
 }
 section:last-of-type {
     border-bottom: none;
@@ -68,13 +68,12 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 .btn-primary {
     background-color: var(--color-primary);
-    color: var(--bg-dark); 
+    color: #fff;
 }
 .btn-primary:hover {
     background-color: var(--color-primary-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 7px 20px rgba(0, 255, 255, 0.4), /* Sombra principal */
-                0 0 25px rgba(0, 255, 255, 0.3); /* Brillo/Glow */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(179, 102, 255, 0.3); /* Morado ajustado */
 }
 .btn-secondary {
     background-color: transparent;
@@ -83,10 +82,8 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 .btn-secondary:hover {
     background-color: var(--color-primary);
-    color: var(--bg-dark); 
-    transform: translateY(-3px);
-    box-shadow: 0 7px 20px rgba(0, 255, 255, 0.4),
-                0 0 25px rgba(0, 255, 255, 0.3);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(179, 102, 255, 0.3); /* Morado ajustado */
 }
 
 /* --- Barra de Navegación --- */
@@ -124,7 +121,7 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 .nav-menu a {
     color: var(--text-primary);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease;
     position: relative;
 }
 .nav-menu a::after {
@@ -141,19 +138,6 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 .nav-menu a:hover::after {
     transform: scaleX(1); 
-}
-.nav-menu a:hover {
-    color: var(--color-primary); 
-}
-
-/* --- ESTILO PARA NAVEGACIÓN ACTIVA (PREPARADO PARA JS) --- */
-.nav-menu a.active {
-    color: var(--color-primary);
-    font-weight: bold;
-    text-shadow: 0 0 10px var(--color-primary); 
-}
-.nav-menu a.active::after {
-    transform: scaleX(1); /* Muestra la barra inferior */
 }
 
 
@@ -208,14 +192,10 @@ a { color: var(--color-primary); text-decoration: none; }
     font-size: 2rem;
     font-weight: 600;
     color: var(--text-primary);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease;
 }
 .mobile-nav-link:hover {
     color: var(--color-primary);
-}
-.mobile-nav-link.active {
-    color: var(--color-primary);
-    text-shadow: 0 0 10px var(--color-primary);
 }
 
 
@@ -257,26 +237,18 @@ a { color: var(--color-primary); text-decoration: none; }
     margin: 0.5rem;
 }
 
-/* --- TEXTO GRADIENTE --- */
+/* --- TEXTO GRADIENTE (AHORA USA MORADO Y VERDE) --- */
 .text-gradient {
-    background: linear-gradient(90deg, 
-        var(--color-primary), 
-        #FFFFFF, 
-        var(--color-accent), 
-        #FFFFFF, 
-        var(--color-primary)
-    );
-    
-    background-size: 400% auto;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    
-    animation: gradient-flow 12s linear infinite;
+    animation: gradient-flow 4s linear infinite;
 }
 
 @keyframes gradient-flow {
-    0% { background-position: 400% center; }
+    0% { background-position: 200% center; }
     100% { background-position: 0% center; }
 }
 
@@ -301,9 +273,11 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 
 .project-card:hover {
-    transform: translateY(-8px); 
+    /* --- MODIFICACIÓN V6: AÑADIDO 'scale(1.05)' --- */
+    transform: translateY(-8px) scale(1.05); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
-                0 0 20px rgba(0, 255, 255, 0.2); 
+                /* Brillo morado ajustado */
+                0 0 20px rgba(179, 102, 255, 0.2); 
 }
 
 .project-image {
@@ -365,7 +339,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-project-modal:hover {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--bg-dark);
+    color: #fff;
 }
 
 /* --- Sección de Habilidades --- */
@@ -382,8 +356,9 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .skill-category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); 
+    /* --- MODIFICACIÓN V6: AÑADIDO 'scale(1.05)' --- */
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); /* Brillo en hover */
 }
 
 .skill-category h4 {
@@ -405,7 +380,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 .skill-category i {
-    color: var(--color-accent); 
+    color: var(--color-accent); /* Iconos ahora en Verde Neón */
     margin-right: 0.75rem;
     width: 20px; 
     text-align: center;
@@ -428,7 +403,7 @@ a { color: var(--color-primary); text-decoration: none; }
     color: var(--text-primary);
 }
 .skill-category li:hover i {
-    color: var(--color-primary); 
+    color: var(--color-primary); /* Cambia a Morado Neón en hover */
     transform: scale(1.2);
 }
 
@@ -531,7 +506,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: box-shadow 0.3s ease;
 }
 .timeline-item:hover .timeline-content {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); 
+    box-shadow: 0 0 20px rgba(179, 102, 255, 0.2); /* Brillo en hover */
 }
 .timeline-item:hover::after {
     background-color: var(--color-primary);
@@ -540,7 +515,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .timeline-date {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-accent); 
+    color: var(--color-accent); /* Fechas en Verde Neón */
     margin-bottom: 0.5rem;
 }
 .timeline-title {
@@ -657,8 +632,7 @@ a { color: var(--color-primary); text-decoration: none; }
     border-radius: 8px;
     display: flex;
     justify-content: center;
-    /* --- ESTA ES LA LÍNEA CORREGIDA --- */
-    align-items: center; 
+    align-items: center;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
