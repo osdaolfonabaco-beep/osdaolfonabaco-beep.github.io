@@ -1,13 +1,14 @@
-// script.js (V15 - Animación H1 Scramble, Refinamientos)
+// script.js (V16 - CORREGIDO Y MEJORADO)
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("Portafolio Oscar Olarte V15 cargado (H1 Scramble, Fondo CSS).");
+    console.log("Portafolio Oscar Olarte V16 cargado (Corrección de Hero y Scroll).");
 
     // --- 1. Animación de la Barra de Navegación ---
     const nav = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) { 
+        // === CORRECCIÓN: Bug de scroll. Cambiado de 50 a 10 ===
+        if (window.scrollY > 10) { 
             nav.classList.add('navbar-scrolled');
         } else {
             nav.classList.remove('navbar-scrolled');
@@ -48,32 +49,46 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- 3. Animación de Entrada del "Hero" & Scroll Reveal con Scramble para H1 y H2 ---
-    // El H1 del Hero ahora también usa la animación scramble y es parte del observer.
-    const heroElements = document.querySelectorAll('.hero-content > .fade-in:not(h1)'); // Elementos que solo se desvanecen (subtítulo, descripción, botones)
-    const heroH1 = document.querySelector('.hero-content h1.fade-in'); // El H1 que tendrá scramble
+    
+    // === CORRECCIÓN: Visibilidad del Hero (Bug de Nombre) ===
+    // 1. Seleccionamos TODOS los elementos del hero.
+    const allHeroElements = document.querySelectorAll('.hero-content > .fade-in');
+    const heroH1 = document.querySelector('.hero-content h1.fade-in'); // Referencia específica al H1
 
-    // Activación inicial para los elementos que solo se desvanecen
-    heroElements.forEach((el) => {
+    // 2. Aplicamos 'hero-visible' a TODOS para asegurar que pasen de opacity: 0 a 1
+    allHeroElements.forEach((el) => {
         void el.offsetWidth; // Forzar reflow
         el.classList.add('hero-visible');
     });
+    // Con esto, tu nombre (H1) y el resto del texto ya son visibles.
 
-    // Intersection Observer para las animaciones de scroll y el H1 del Hero
+    // Intersection Observer para las animaciones de scroll
     const revealObserverOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
     
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                
+                // Si es un título de sección (H2) O el H1 del Hero
                 if (entry.target.classList.contains('reveal-title') || entry.target === heroH1) {
+                    // Ejecuta la animación "scramble"
                     if (!entry.target.dataset.intervalId || entry.target.dataset.intervalId === 'null') {
                          scrambleAnimation(entry.target);
                     }
+                    
+                    // === MEJORA: Si es el H1 del Hero, deja de observarlo ===
+                    // Esto evita que la animación del nombre se repita al scrollear.
+                    if (entry.target === heroH1) {
+                        observer.unobserve(entry.target);
+                    }
+
                 } else {
+                    // Para todas las demás tarjetas (.reveal-card)
                     entry.target.classList.add('visible');
                 }
             } else {
-                // Si ya no es visible, resetea la animación para que pueda repetirse
-                if (entry.target.classList.contains('reveal-title') || entry.target === heroH1) {
+                // Si ya no es visible, resetea la animación (SOLO para H2, no para el H1)
+                if (entry.target.classList.contains('reveal-title')) { 
                     if (entry.target.dataset.intervalId && entry.target.dataset.intervalId !== 'null') {
                         clearInterval(parseInt(entry.target.dataset.intervalId));
                         entry.target.dataset.intervalId = null;
@@ -81,7 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (entry.target.dataset.originalText) {
                         entry.target.textContent = entry.target.dataset.originalText;
                     }
-                } else {
+                } else if (entry.target.classList.contains('reveal-card')) {
+                    // Resetea las tarjetas
                     entry.target.classList.remove('visible');
                 }
             }
@@ -126,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalDescription = document.getElementById('modal-description');
     const modalTags = document.getElementById('modal-tags');
     const modalGithubLink = document.getElementById('modal-github-link');
-    const modalImagePlaceholder = document.getElementById('modal-image-placeholder'); // Nuevo: placeholder para imagen
+    const modalImagePlaceholder = document.getElementById('modal-image-placeholder'); 
 
     if (modalOverlay && modalCloseBtn && projectButtons.length > 0 && modalTitle && modalDescription && modalTags && modalGithubLink && modalImagePlaceholder) {
         const openModal = (projectCard) => {
@@ -134,13 +150,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const description = projectCard.dataset.description;
             const githubUrl = projectCard.dataset.githubUrl;
             const tags = JSON.parse(projectCard.dataset.tags); 
-            const imageUrl = projectCard.dataset.imageUrl || 'https://via.placeholder.com/600x400.png?text=Imagen+del+Proyecto'; // Usa imagen del dataset o un placeholder
+            const imageUrl = projectCard.dataset.imageUrl || 'https://via.placeholder.com/600x400.png?text=Imagen+del+Proyecto'; 
 
             modalTitle.textContent = title;
             modalDescription.textContent = description;
             modalGithubLink.href = githubUrl;
             
-            // Si quieres que el botón "Ver Código" se oculte si no hay URL
             if (githubUrl) {
                 modalGithubLink.style.display = 'inline-block';
             } else {
@@ -154,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalTags.appendChild(tagElement);
             });
             
-            // Asigna la imagen al placeholder
             modalImagePlaceholder.innerHTML = `<img src="${imageUrl}" alt="${title}" style="max-width:100%; height:auto; border-radius:8px;">`;
 
             modalOverlay.classList.add('is-active');
