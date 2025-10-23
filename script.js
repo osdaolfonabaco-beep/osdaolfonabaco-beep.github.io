@@ -1,8 +1,8 @@
-// script.js (Corregido)
+// script.js (Final)
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("Portafolio Oscar Olarte V3 cargado (con Modales).");
+    console.log("Portafolio Oscar Olarte V3 cargado (con Modales y ScrollSpy).");
 
     // --- 1. Animación de la Barra de Navegación ---
     const nav = document.querySelector('.navbar');
@@ -63,72 +63,99 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==================================
-    // --- 5. LÓGICA DEL MODAL (CORREGIDA) ---
+    // --- 5. LÓGICA DEL MODAL ---
     // ==================================
 
     const modalOverlay = document.getElementById('modal-overlay');
     const modalCloseBtn = document.getElementById('modal-close');
     const projectButtons = document.querySelectorAll('.btn-project-modal');
 
-    // Elementos del modal que vamos a rellenar
     const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
     const modalTags = document.getElementById('modal-tags');
     const modalGithubLink = document.getElementById('modal-github-link');
-    // const modalImage = document.getElementById('modal-image'); // (Para el futuro)
 
-    // Función para abrir el modal y llenarlo con datos
     const openModal = (projectCard) => {
-        // 1. Extraer datos del projectCard usando atributos 'data-'
         const title = projectCard.dataset.title;
         const description = projectCard.dataset.description;
         const githubUrl = projectCard.dataset.githubUrl;
-        // Parseamos el string JSON de los tags
         const tags = JSON.parse(projectCard.dataset.tags);
 
-        // 2. Rellenar el contenido del modal
         modalTitle.textContent = title;
         modalDescription.textContent = description;
         modalGithubLink.href = githubUrl;
-        // (En el futuro, también pondrías la imagen)
-        // modalImage.src = projectCard.dataset.imageUrl;
 
-        // 3. Limpiar y rellenar los tags
-        modalTags.innerHTML = ''; // Limpia tags anteriores
+        modalTags.innerHTML = ''; 
         tags.forEach(tag => {
             const tagElement = document.createElement('span');
             tagElement.textContent = tag;
             modalTags.appendChild(tagElement);
         });
 
-        // 4. Mostrar el modal
         modalOverlay.classList.add('is-active');
     };
 
-    // Función para cerrar el modal
     const closeModal = () => {
         modalOverlay.classList.remove('is-active');
     };
 
-    // Añadir listeners a TODOS los botones "Ver Detalles"
     projectButtons.forEach(button => {
-        // --- AQUÍ ESTABA EL ERROR ---
-        // Corregido de ()M => a () =>
         button.addEventListener('click', () => {
-            // 'closest' sube por el DOM hasta encontrar la tarjeta padre
             const projectCard = button.closest('.project-card');
             openModal(projectCard);
         });
     });
 
-    // Añadir listener al botón de cerrar
     modalCloseBtn.addEventListener('click', closeModal);
 
-    // Añadir listener para cerrar el modal haciendo clic en el fondo
     modalOverlay.addEventListener('click', (event) => {
-        // Si el clic fue en el overlay (fondo) y no en el contenido
         if (event.target === modalOverlay) {
             closeModal();
         }
     });
+
+    // ==================================
+    // --- 6. Active Nav Link on Scroll (¡NUEVO!) ---
+    // ==================================
+
+    // Seleccionamos todas las secciones que tienen un ID
+    // Importante: incluimos 'header' para el 'hero'
+    const sections = document.querySelectorAll('header[id], section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
+
+    const highlightNav = () => {
+        let currentSectionId = '';
+        const scrollY = window.pageYOffset; // Posición actual del scroll
+
+        // Iteramos sobre las secciones para encontrar la última que esté visible
+        sections.forEach(section => {
+            // Un offset de 150px para que el enlace se active un poco antes
+            const sectionTop = section.offsetTop - 150; 
+            if (scrollY >= sectionTop) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        // Función para actualizar los enlaces
+        const updateLinks = (links) => {
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        // Actualizamos ambos menús
+        updateLinks(navLinks);
+        updateLinks(mobileNavLinks);
+    };
+
+    // Añadimos el listener al evento de scroll
+    window.addEventListener('scroll', highlightNav);
+
+    // Opcional: Ejecutar una vez al cargar por si la página no carga en el 'top'
+    highlightNav();
+
 });
