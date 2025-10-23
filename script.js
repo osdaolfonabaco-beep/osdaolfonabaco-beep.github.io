@@ -1,8 +1,8 @@
-// script.js (V13 - Fix Definitivo para Animación Hero)
+// script.js (V14 - Corrección de Sincronía HTML/CSS/JS)
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("Portafolio Oscar Olarte V13 cargado (Fix Hero Definitivo).");
+    console.log("Portafolio Oscar Olarte V14 cargado (Sincronización completa).");
 
     // --- 1. Animación de la Barra de Navegación ---
     const nav = document.querySelector('.navbar');
@@ -14,16 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 2. Animación de Entrada del "Hero" (CORREGIDO - Sin setTimeout) ---
-    // Activamos la animación directamente al cargar el DOM.
+    // --- 2. Animación de Entrada del "Hero" ---
+    // CORRECCIÓN: Se cambió de estilos en línea (el.style) a añadir una clase (.hero-visible)
+    // para trabajar CON el CSS (style.css, línea 104) y permitir los retrasos escalonados.
     const heroElements = document.querySelectorAll('.hero-content > .fade-in');
     heroElements.forEach((el) => {
-        // Forzamos un reflow (repintado) mínimo antes de aplicar estilos finales.
-        // Esto ayuda a asegurar que la transición CSS se aplique correctamente.
+        // Forzamos un reflow (repintado) mínimo
         void el.offsetWidth; 
         
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
+        // Añadimos la clase que el CSS está esperando
+        el.classList.add('hero-visible');
     });
 
 
@@ -100,7 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navClose = document.getElementById('mobile-nav-close');
     const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-    if (navToggle && mobileNav && navClose && mobileLinks) {
+    // Esta lógica ahora funcionará porque los elementos existen en el HTML corregido.
+    if (navToggle && mobileNav && navClose && mobileLinks.length > 0) {
         navToggle.addEventListener('click', () => {
             mobileNav.classList.add('is-active');
             navToggle.classList.add('is-active'); 
@@ -126,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTags = document.getElementById('modal-tags');
     const modalGithubLink = document.getElementById('modal-github-link');
 
+    // Esta lógica ahora funcionará porque los elementos existen en el HTML corregido.
     if (modalOverlay && modalCloseBtn && projectButtons.length > 0 && modalTitle && modalDescription && modalTags && modalGithubLink) {
         const openModal = (projectCard) => {
             const title = projectCard.dataset.title;

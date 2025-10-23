@@ -197,3 +197,4 @@ html { scrollbar-width: thin; scrollbar-color: var(--border-color) var(--bg-dark
     .timeline-item.left::before, .timeline-item.right::before { left: 60px; border-width: 10px 10px 10px 0; border-color: transparent var(--bg-light-dark) transparent transparent; }
     .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
 }
+
