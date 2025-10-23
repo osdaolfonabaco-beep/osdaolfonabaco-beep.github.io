@@ -19,6 +19,7 @@
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#experience">Experiencia</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
             <div class="nav-toggle" id="nav-toggle">
@@ -35,6 +36,7 @@
             <li><a href="#hero" class="mobile-nav-link">Inicio</a></li>
             <li><a href="#projects" class="mobile-nav-link">Proyectos</a></li>
             <li><a href="#skills" class="mobile-nav-link">Habilidades</a></li>
+            <li><a href="#experience" class="mobile-nav-link">Experiencia</a></li>
             <li><a href="#contact" class="mobile-nav-link">Contacto</a></li>
         </ul>
     </div>
@@ -58,7 +60,6 @@
         <div class="container">
             <h2 class="reveal">Proyectos Destacados</h2>
             <div class="projects-grid">
-
                 <div class="project-card reveal" 
                      data-title="Autonomous SOC Analyst Agent"
                      data-description="Un agente de IA que automatiza por completo el flujo de un analista SOC Nivel 1. Ingiere logs de AWS CloudTrail, detecta anomalías de inicio de sesión y realiza un enriquecimiento automático de IPs (Geo-location y VirusTotal). Finalmente, utiliza LangChain y Claude 3 para generar informes de incidentes listos para ejecutivos, reduciendo drásticamente la fatiga de alertas."
@@ -76,7 +77,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="project-card reveal"
                      data-title="AWS Serverless Log Analyzer"
                      data-description="Un pipeline de análisis de seguridad 100% serverless y automatizado en AWS, diseñado para detectar actividad sospechosa. Toda la infraestructura (S3, Lambda, ECR, IAM) es desplegada de forma consistente y repetible utilizando Terraform (IaC). Al subir un log a S3, un contenedor Docker en Lambda es invocado para analizar las IPs más frecuentes y reportar los hallazgos a CloudWatch."
@@ -94,7 +94,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="project-card reveal"
                      data-title="LogSentinel: Cloud Security Pipeline"
                      data-description="Un pipeline de datos de seguridad de extremo a extremo que transforma logs brutos en inteligencia accionable. El sistema ingiere datos desde AWS S3, los enriquece en tiempo real contra APIs de inteligencia de amenazas (como AbuseIPDB) y persiste los hallazOS en una base de datos SQL para análisis histórico. Demuestra un dominio completo del ciclo de vida del dato de seguridad, desde la generación de datasets a gran escala (con Pandas) hasta la consulta final con SQL."
@@ -112,7 +111,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="project-card reveal"
                      data-title='"Superhuman" AI Security Gateway'
                      data-description="Un gateway de seguridad de nivel de producción (Docker/FastAPI) que actúa como un 'Guardia de IA' entre los usuarios y cualquier LLM. Implementa una defensa en profundidad: analiza los prompts de *entrada* para bloquear ataques de Inyección de Prompts y escanea las respuestas de *salida* para detectar y redactar PII (DLP) y contenido tóxico, resolviendo el mayor riesgo en la adopción empresarial de la IA."
@@ -144,7 +142,7 @@
                         <li><i class="fa-brands fa-python"></i> Python</li>
                         <li><i class="fa-solid fa-database"></i> SQL / NoSQL</li>
                         <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
-                        <li><a href="httpsExample" style="color: var(--text-secondary);"><i class="fa-solid fa-terminal"></i> Bash / Shell</a></li>
+                        <li><i class="fa-solid fa-terminal"></i> Bash / Shell</li>
                     </ul>
                 </div>
                 <div class="skill-category reveal">
@@ -178,6 +176,39 @@
         </div>
     </section>
 
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="reveal">Experiencia y Formación</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - 2025</div>
+                        <div class="timeline-title">Formación "Cybersecurity Data Analyst"</div>
+                        <div class="timeline-subtitle">Plataforma de E-Learning (ej. Coursera/Platzi)</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-title">Certificación AWS Cloud Practitioner</div>
+                        <div class="timeline-subtitle">Amazon Web Services</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - 2023</div>
+                        <div class="timeline-title">Analista de Soporte TI (Ejemplo)</div>
+                        <div class="timeline-subtitle">Nombre de Empresa (Ejemplo)</div>
+                    </div>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
     <section id="contact" class="contact-section">
         <div class="container reveal">
             <h2>Hablemos</h2>
@@ -197,22 +228,7 @@
     </footer>
 
     <div class="modal-overlay" id="modal-overlay">
-        <div class="modal-content" id="modal-content">
-            <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-body">
-                <h2 id="modal-title"></h2>
-                <div id="modal-image-placeholder">
-                    <p>(Aquí irá la imagen del proyecto)</p>
-                </div>
-                <div class="modal-tags" id="modal-tags">
-                    </div>
-                <p id="modal-description"></p>
-                <div class="modal-links">
-                    <a href="#" id="modal-github-link" target="_blank" class="btn btn-primary"><i class="fa-brands fa-github"></i> Ver Código</a>
-                </div>
-            </div>
         </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
