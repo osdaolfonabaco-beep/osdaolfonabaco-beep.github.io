@@ -6,4 +6,4 @@
 // 2. Animaciones de "scroll-reveal" para que los elementos aparezcan.
 // 3. Funcionalidad de un formulario de contacto.
 
-console.log("Portafolio cargado.");
+console.log("Portafolio Oscar Olarte cargado.");

@@ -151,4 +151,61 @@ li {
 
 .sidebar p, .sidebar li {
     color: #e0e0e0;
-    font-size: 10.5pt
+    font-size: 10.5pt;
+}
+
+.sidebar-section {
+    margin-bottom: 2rem;
+}
+
+/* Sección de Habilidades en la Barra Lateral */
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list strong {
+    color: #1a73e8; /* Resaltar categoría de habilidad */
+    font-weight: 600;
+}
+
+/* --- Configuración de Impresión --- */
+@media print {
+    /* Eliminar fondo gris, sombras y márgenes de la página web */
+    body {
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+        font-size: 10pt; /* Ligeramente más pequeño para impresión */
+    }
+
+    .cv-container {
+        margin: 0;
+        box-shadow: none;
+        max-width: 100%;
+        min-height: 0;
+    }
+
+    /* Asegurar que las 2 columnas se impriman correctamente */
+    .main-content {
+        width: 65%;
+        padding: 1.5rem; /* Reducir padding para impresión */
+    }
+    
+    .sidebar {
+        width: 35%;
+        padding: 1.5rem;
+    }
+
+    /* Forzar la impresión de colores de fondo */
+    @page {
+        size: letter;
+        margin: 0.5in; /* Márgenes estándar de impresión */
+    }
+
+    /* Evitar saltos de página dentro de una sección */
+    .job, .project, .education-entry, .sidebar-section {
+        page-break-inside: avoid;
+    }
+}
+
