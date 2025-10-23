@@ -1,0 +1,154 @@
+/* --- CV-STYLE.CSS --- */
+/* --- Diseño Profesional para CV HTML & PDF --- */
+
+/* --- Configuración Global y Tipografía --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Fondo gris claro para la vista web */
+    margin: 0;
+    padding: 0;
+    font-size: 11pt; /* Tamaño base optimizado para PDF */
+}
+
+/* El contenedor principal de la página del CV */
+.cv-container {
+    display: flex;
+    max-width: 8.5in; /* Ancho de página Carta USA */
+    min-height: 11in; /* Alto de página Carta USA */
+    margin: 2rem auto;
+    background-color: #ffffff; /* Hoja blanca */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estructura de 2 Columnas --- */
+
+/* Columna Principal (Izquierda) - 65% */
+.main-content {
+    width: 65%;
+    padding: 2.5rem;
+    color: #333;
+}
+
+/* Barra Lateral (Derecha) - 35% */
+.sidebar {
+    width: 35%;
+    background-color: #0d2c4a; /* Azul oscuro profesional */
+    color: #ffffff;
+    padding: 2.5rem;
+}
+
+/* --- Encabezado Principal (Tu Nombre) --- */
+.header {
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0d2c4a;
+    letter-spacing: -1px;
+}
+
+.header h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #1a73e8; /* Azul brillante para el título */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+}
+
+/* --- Información de Contacto --- */
+.contact-info {
+    margin-top: 1rem;
+    list-style: none;
+    padding: 0;
+    font-size: 10pt;
+    color: #555;
+}
+
+.contact-info li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #1a73e8;
+    width: 16px;
+    text-align: center;
+}
+
+/* --- Estilos de Secciones (General) --- */
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Sección Principal (Experiencia, Proyectos) --- */
+.main-content h3 {
+    color: #0d2c4a;
+    border-bottom: 2px solid #1a73e8;
+    padding-bottom: 5px;
+}
+
+.job, .project, .education-entry {
+    margin-bottom: 2rem;
+}
+
+.job-title, .project-title, .degree {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+}
+
+.company, .school {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+.date, .location {
+    font-size: 0.9rem;
+    color: #555;
+    font-style: italic;
+    float: right;
+}
+
+.job-header, .project-header, .education-header {
+    overflow: hidden; /* Limpia el float */
+    margin-bottom: 0.75rem;
+}
+
+/* Puntos de logros (bullets) */
+ul {
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* --- Barra Lateral (Resumen, Habilidades) --- */
+.sidebar h3 {
+    color: #ffffff;
+    border-bottom: 2px solid #1a73e8;
+    padding-bottom: 5px;
+}
+
+.sidebar p, .sidebar li {
+    color: #e0e0e0;
+    font-size: 10.5pt

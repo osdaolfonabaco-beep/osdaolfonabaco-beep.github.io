@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Nombre - Portafolio de Ciberseguridad e IA</title>
+    <title>Oscar Olarte - Portafolio de Ciberseguridad e IA</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
@@ -11,7 +11,7 @@
 
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="nav-logo">TuNombre.dev</a>
+            <a href="#" class="nav-logo">OscarOlarte.dev</a>
             <ul class="nav-menu">
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#projects">Proyectos</a></li>
@@ -23,16 +23,15 @@
 
     <header class="hero" id="hero">
         <div class="container hero-content">
-            <h1>Hola, soy [Tu Nombre]</h1>
+            <h1>Hola, soy Oscar David Olarte Forero</h1>
             <p class="hero-subtitle">Especialista en Ciberseguridad e Inteligencia Artificial</p>
             <p class="hero-description">
-                Construyo soluciones de seguridad inteligentes para proteger y analizar
-                infraestructuras críticas. Apasionado por la automatización y la respuesta a incidentes.
+                Construyo la próxima generación de defensas de seguridad, utilizando IA para automatizar el análisis SOC, asegurar LLMs contra ataques y desplegar infraestructuras inmutables (Terraform, AWS, Docker). Convierto problemas de seguridad complejos en soluciones de software robustas y escalables.
             </p>
             <div class="hero-links">
-                <a href="[Tu URL de LinkedIn]" target="_blank" class="btn btn-primary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="[Tu URL de GitHub]" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="[Enlace a tu CV.pdf]" target="_blank" class="btn btn-secondary">Descargar CV</a>
+                <a href="https://www.linkedin.com/in/oscar-david-olarte-forero-110292382/" target="_blank" class="btn btn-primary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/osdaolfonabaco-beep" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="CV-Oscar-Olarte.pdf" target="_blank" class="btn btn-secondary">Descargar CV</a>
             </div>
         </div>
     </header>
@@ -46,33 +45,17 @@
                     <div class="project-content">
                         <h3 class="project-title">Autonomous SOC Analyst Agent</h3>
                         <p class="project-description">
-                            Agente de IA para automatizar tareas de un analista SOC, incluyendo triaje de alertas, generación de informes y respuesta inicial a incidentes.
+                            Un agente de IA que automatiza por completo el flujo de un analista SOC Nivel 1. Ingiere logs de AWS CloudTrail, detecta anomalías de inicio de sesión y realiza un enriquecimiento automático de IPs (Geo-location y VirusTotal). Finalmente, utiliza LangChain y Claude 3 para generar informes de incidentes listos para ejecutivos, reduciendo drásticamente la fatiga de alertas.
                         </p>
                         <ul class="project-tags">
-                            <li>IA</li>
-                            <li>Ciberseguridad</li>
-                            <li>Automatización</li>
                             <li>Python</li>
+                            <li>IA (LangChain)</li>
+                            <li>Ciberseguridad</li>
+                            <li>AWS (Boto3)</li>
+                            <li>Automatización</li>
                         </ul>
                         <div class="project-links">
-                            <a href="https://docs.github.com/es/get-started/exploring-projects-on-github" target="_blank" class="btn-project"><i class="fa-brands fa-github"></i> Ver Código</a>
-                            </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">LLM Security Gateway</h3>
-                        <p class="project-description">
-                            Gateway de seguridad diseñado para filtrar y proteger interacciones con Modelos de Lenguaje (LLMs), previniendo ataques de inyección de prompts y fuga de datos.
-                        </p>
-                        <ul class="project-tags">
-                            <li>IA</li>
-                            <li>Seguridad Ofensiva</li>
-                            <li>API</li>
-                            <li>LLM</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://docs.github.com/es/get-started/exploring-projects-on-github" target="_blank" class="btn-project"><i class="fa-brands fa-github"></i> Ver Código</a>
+                            <a href="https://github.com/osdaolfonabaco-beep/Autonomous-soc-analyst-agent" target="_blank" class="btn-project"><i class="fa-brands fa-github"></i> Ver Código</a>
                         </div>
                     </div>
                 </div>
@@ -80,16 +63,53 @@
                     <div class="project-content">
                         <h3 class="project-title">AWS Serverless Log Analyzer</h3>
                         <p class="project-description">
-                            Sistema de análisis de logs en tiempo real sin servidor (serverless) en AWS, utilizando Lambda y Athena para detectar anomalías de seguridad en logs de CloudTrail.
+                            Un pipeline de análisis de seguridad 100% serverless y automatizado en AWS, diseñado para detectar actividad sospechosa. Toda la infraestructura (S3, Lambda, ECR, IAM) es desplegada de forma consistente y repetible utilizando Terraform (IaC). Al subir un log a S3, un contenedor Docker en Lambda es invocado para analizar las IPs más frecuentes y reportar los hallazgos a CloudWatch.
                         </p>
                         <ul class="project-tags">
-                            <li>AWS</li>
+                            <li>AWS (Lambda/S3)</li>
+                            <li>Terraform (IaC)</li>
                             <li>Serverless</li>
-                            <li>Análisis de Datos</li>
-                            <li>Seguridad Cloud</li>
+                            <li>Docker</li>
+                            <li>Python</li>
                         </ul>
                         <div class="project-links">
-                            <a href="https://docs.github.com/es/get-started/exploring-projects-on-github" target="_blank" class="btn-project"><i class="fa-brands fa-github"></i> Ver Código</a>
+                            <a href="https://github.com/osdaolfonabaco-beep/AWS-Serverless-log-analyzer" target="_blank" class="btn-project"><i class="fa-brands fa-github"></i> Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">LogSentinel: Cloud Security Pipeline</h3>
+                        <p class="project-description">
+                            Un pipeline de datos de seguridad de extremo a extremo que transforma logs brutos en inteligencia accionable. El sistema ingiere datos desde AWS S3, los enriquece en tiempo real contra APIs de inteligencia de amenazas (como AbuseIPDB) y persiste los hallazOS en una base de datos SQL para análisis histórico. Demuestra un dominio completo del ciclo de vida del dato de seguridad, desde la generación de datasets a gran escala (con Pandas) hasta la consulta final con SQL.
+                        </p>
+                        <ul class="project-tags">
+                            <li>Python</li>
+                            <li>Data Engineering</li>
+                            <li>AWS (S3/Boto3)</li>
+                            <li>SQL (SQLite)</li>
+                            <li>Pandas</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/osdaolfonabaco-beep/LogSentinel-cloud-pipeline" target="_blank" class="btn-project"><i class="fa-brands fa-github"></i> Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">"Superhuman" AI Security Gateway</h3>
+                        <p class="project-description">
+                            Un gateway de seguridad de nivel de producción (Docker/FastAPI) que actúa como un "Guardia de IA" entre los usuarios y cualquier LLM. Implementa una defensa en profundidad: analiza los prompts de *entrada* para bloquear ataques de Inyección de Prompts y escanea las respuestas de *salida* para detectar y redactar PII (DLP) y contenido tóxico, resolviendo el mayor riesgo en la adopción empresarial de la IA.
+                        </p>
+                        <ul class="project-tags">
+                            <li>Python (FastAPI)</li>
+                            <li>IA Security</li>
+                            <li>Docker</li>
+                            <li>LLM</li>
+                            <li>DLP (PII)</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/osdaolfonabaco-beep/llm-security-gateway" target="_blank" class="btn-project"><i class="fa-brands fa-github"></i> Ver Código</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +127,7 @@
                         <li><i class="fa-brands fa-python"></i> Python</li>
                         <li><i class="fa-solid fa-database"></i> SQL / NoSQL</li>
                         <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
-                        <li><i class="fa-solid fa-terminal"></i> Bash / Shell</li>
+                        <li><a href="httpsExample" style="color: var(--text-secondary);"><i class="fa-solid fa-terminal"></i> Bash / Shell</a></li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -148,14 +168,14 @@
                 Estoy buscando activamente nuevas oportunidades y me encantaría conectar.
                 <br>
                 Envíame un correo y hablemos sobre cómo puedo aportar valor a tu equipo.
-            </p>
-            <a href="mailto:tu-email@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Enviar un Correo</a>
+            </V>
+            <a href="mailto:osdaolfonabaco@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Enviar un Correo</a>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 [Tu Nombre Completo]. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Oscar David Olarte Forero. Todos los derechos reservados.</p>
         </div>
     </footer>
 
