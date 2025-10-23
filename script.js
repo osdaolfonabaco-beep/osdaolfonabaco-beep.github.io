@@ -1,8 +1,8 @@
-// script.js (V7 - Versión Final y Corregida)
+// script.js (V8 - Con Navegación Activa)
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("Portafolio Oscar Olarte V7 cargado (con Modales y Triggers).");
+    console.log("Portafolio Oscar Olarte V8 cargado (con Active Nav).");
 
     // --- 1. Animación de la Barra de Navegación ---
     const nav = document.querySelector('.navbar');
@@ -21,32 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transform = 'translateY(0)';
     });
 
-    // --- 3. Animación de "Scroll Reveal" (IntersectionObserver) ---
-    // Este es el código que hace que las animaciones "stagger" y "reveal" funcionen.
-    const observerOptions = {
+    // --- 3. Animación de "Scroll Reveal" (Para animaciones de entrada) ---
+    const revealObserverOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Inicia cuando el 10% del elemento es visible
+        threshold: 0.1 
     };
     
-    const observerCallback = (entries, observer) => {
+    const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // El elemento es visible, añade la clase 'visible' para activar la animación CSS
                 entry.target.classList.add('visible');
-                // Deja de observar el elemento para que la animación no se repita
                 observer.unobserve(entry.target);
             }
         });
     };
     
-    // Crea el observer
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const revealObserver = new IntersectionObserver(revealCallback, revealObserverOptions);
     
-    // Selecciona todos los elementos con la clase '.reveal' y los observa
     const elementsToReveal = document.querySelectorAll('.reveal');
     elementsToReveal.forEach(el => {
-        observer.observe(el);
+        revealObserver.observe(el);
     });
 
     // --- 4. Lógica del Menú Móvil ---
@@ -70,66 +65,85 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==================================
-    // --- 5. LÓGICA DEL MODAL (Corregida) ---
-    // ==================================
-
+    // --- 5. Lógica del Modal ---
     const modalOverlay = document.getElementById('modal-overlay');
     const modalCloseBtn = document.getElementById('modal-close');
     const projectButtons = document.querySelectorAll('.btn-project-modal');
-
-    // Elementos del modal que vamos a rellenar
     const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
     const modalTags = document.getElementById('modal-tags');
     const modalGithubLink = document.getElementById('modal-github-link');
 
-    // Función para abrir el modal y llenarlo con datos
     const openModal = (projectCard) => {
-        // 1. Extraer datos del projectCard usando atributos 'data-'
         const title = projectCard.dataset.title;
         const description = projectCard.dataset.description;
         const githubUrl = projectCard.dataset.githubUrl;
-        const tags = JSON.parse(projectCard.dataset.tags); // Parseamos el string JSON
+        const tags = JSON.parse(projectCard.dataset.tags); 
 
-        // 2. Rellenar el contenido del modal
         modalTitle.textContent = title;
         modalDescription.textContent = description;
         modalGithubLink.href = githubUrl;
-
-        // 3. Limpiar y rellenar los tags
-        modalTags.innerHTML = ''; // Limpia tags anteriores
+        modalTags.innerHTML = ''; 
         tags.forEach(tag => {
             const tagElement = document.createElement('span');
             tagElement.textContent = tag;
             modalTags.appendChild(tagElement);
         });
-
-        // 4. Mostrar el modal
         modalOverlay.classList.add('is-active');
     };
 
-    // Función para cerrar el modal
     const closeModal = () => {
         modalOverlay.classList.remove('is-active');
     };
 
-    // Añadir listeners a TODOS los botones "Ver Detalles"
     projectButtons.forEach(button => {
-        // Esta es la línea que tenía el error de la 'M'
         button.addEventListener('click', () => {
             const projectCard = button.closest('.project-card');
             openModal(projectCard);
         });
     });
-
-    // Añadir listener al botón de cerrar
     modalCloseBtn.addEventListener('click', closeModal);
-
-    // Añadir listener para cerrar el modal haciendo clic en el fondo
     modalOverlay.addEventListener('click', (event) => {
         if (event.target === modalOverlay) {
             closeModal();
         }
     });
+
+    // ==================================
+    // --- 6. LÓGICA DE NAVEGACIÓN ACTIVA (NUEVA) ---
+    // ==================================
+    const sections = document.querySelectorAll('section[id]');
+    const allNavLinks = document.querySelectorAll('.nav-menu a, .mobile-nav-menu a');
+    
+    const navObserverOptions = {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px', // Activa cuando la sección está en el medio de la pantalla
+        threshold: 0
+    };
+
+    const navCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                
+                // Quitar la clase activa de todos los enlaces
+                allNavLinks.forEach(link => {
+                    link.classList.remove('active-link');
+                });
+
+                // Añadir la clase activa a los enlaces correspondientes (desktop y mobile)
+                const activeLinks = document.querySelectorAll(`a[href="#${id}"]`);
+                activeLinks.forEach(link => {
+                    link.classList.add('active-link');
+                });
+            }
+        });
+    };
+
+    const navObserver = new IntersectionObserver(navCallback, navObserverOptions);
+
+    sections.forEach(section => {
+        navObserver.observe(section);
+    });
+
 });

@@ -5,10 +5,11 @@
     --text-primary: #e0e0e0;
     --text-secondary: #aaaaaa;
 
-    /* --- PALETA "CYBERPUNK NEON" REFINADA (V5.1) --- */
-    --color-primary: #B366FF; /* Morado Neón (más claro) */
-    --color-primary-hover: #D6A3FF; /* Morado más claro para hover */
-    --color-accent: #00FFAA; /* Verde Neón para acentos */
+    /* --- PALETA V8: AZUL (Primario) + NEÓN (Acentos) --- */
+    --color-primary: #00aaff; /* Azul Tech (Restaurado) */
+    --color-primary-hover: #0088cc; /* Azul Hover (Restaurado) */
+    --color-accent-purple: #B366FF; /* Morado Neón (Acento 1) */
+    --color-accent-green: #00FFAA; /* Verde Neón (Acento 2) */
     
     --border-color: #333333;
     --font-family: 'Inter', sans-serif; 
@@ -53,7 +54,7 @@ h1, h2, h3 {
 
 h1 { font-size: 3rem; }
 h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
-h3 { font-size: 1.5rem; color: var(--color-primary); }
+h3 { font-size: 1.5rem; color: var(--color-primary); } /* Títulos H3 en azul */
 p { margin-bottom: 1rem; }
 a { color: var(--color-primary); text-decoration: none; }
 
@@ -73,7 +74,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-primary:hover {
     background-color: var(--color-primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(179, 102, 255, 0.3); /* Morado ajustado */
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3); /* Sombra azul */
 }
 .btn-secondary {
     background-color: transparent;
@@ -83,7 +84,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-secondary:hover {
     background-color: var(--color-primary);
     color: #fff;
-    box-shadow: 0 0 15px rgba(179, 102, 255, 0.3); /* Morado ajustado */
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3); /* Sombra azul */
 }
 
 /* --- Barra de Navegación --- */
@@ -138,6 +139,14 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 .nav-menu a:hover::after {
     transform: scaleX(1); 
+}
+
+/* --- ESTILO DE NAVEGACIÓN ACTIVA (NUEVO) --- */
+.nav-menu a.active-link {
+    color: var(--color-primary); /* Resalta el enlace activo en azul */
+}
+.nav-menu a.active-link::after {
+    transform: scaleX(1); /* Muestra el subrayado en el enlace activo */
 }
 
 
@@ -197,6 +206,10 @@ a { color: var(--color-primary); text-decoration: none; }
 .mobile-nav-link:hover {
     color: var(--color-primary);
 }
+/* --- ESTILO ACTIVO MÓVIL (NUEVO) --- */
+.mobile-nav-link.active-link {
+    color: var(--color-primary); /* Resalta el enlace activo en azul */
+}
 
 
 /* --- Sección Hero --- */
@@ -237,9 +250,9 @@ a { color: var(--color-primary); text-decoration: none; }
     margin: 0.5rem;
 }
 
-/* --- TEXTO GRADIENTE (AHORA USA MORADO Y VERDE) --- */
+/* --- TEXTO GRADIENTE (AHORA USA MORADO Y VERDE NEÓN) --- */
 .text-gradient {
-    background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
+    background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-green), var(--color-accent-purple));
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -269,18 +282,15 @@ a { color: var(--color-primary); text-decoration: none; }
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    /* --- MODIFICACIÓN V7: CAMBIADO a 0.4s para un zoom más suave --- */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project-card:hover {
-    /* --- MODIFICACIÓN V7: CAMBIADO A 10% (scale(1.1)) --- */
     transform: translateY(-8px) scale(1.1); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
-                /* Brillo morado ajustado */
-                0 0 20px rgba(179, 102, 255, 0.2); 
-    z-index: 10; /* Se asegura que la tarjeta se ponga por encima de las otras */
-    position: relative; /* Necesario para que z-index funcione */
+                0 0 20px rgba(0, 170, 255, 0.2); /* Sombra de brillo azul */
+    z-index: 10; 
+    position: relative; 
 }
 
 .project-image {
@@ -292,7 +302,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: transform 0.3s ease-out;
 }
 .project-card:hover .project-image {
-    transform: scale(1.05); /* Mantenemos este zoom sutil en la imagen */
+    transform: scale(1.05);
 }
 .project-content {
     padding: 1.5rem;
@@ -356,15 +366,14 @@ a { color: var(--color-primary); text-decoration: none; }
     padding: 2rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    /* --- MODIFICACIÓN V7: CAMBIADO a 0.4s para un zoom más suave --- */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .skill-category:hover {
-    /* --- MODIFICACIÓN V7: CAMBIADO A 10% (scale(1.1)) --- */
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); /* Brillo en hover */
-    z-index: 10; /* Se asegura que la tarjeta se ponga por encima de las otras */
-    position: relative; /* Necesario para que z-index funcione */
+    /* --- MODIFICACIÓN V8: EMPAREJADO CON PROYECTOS --- */
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); 
+    z-index: 10;
+    position: relative;
 }
 
 .skill-category h4 {
@@ -386,7 +395,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 .skill-category i {
-    color: var(--color-accent); /* Iconos ahora en Verde Neón */
+    color: var(--color-accent-green); /* Iconos en Verde Neón */
     margin-right: 0.75rem;
     width: 20px; 
     text-align: center;
@@ -409,7 +418,7 @@ a { color: var(--color-primary); text-decoration: none; }
     color: var(--text-primary);
 }
 .skill-category li:hover i {
-    color: var(--color-primary); /* Cambia a Morado Neón en hover */
+    color: var(--color-accent-purple); /* Cambia a Morado Neón en hover */
     transform: scale(1.2);
 }
 
@@ -424,7 +433,6 @@ a { color: var(--color-primary); text-decoration: none; }
     padding: 2rem 0;
 }
 
-/* La línea vertical del timeline */
 .timeline::after {
     content: '';
     position: absolute;
@@ -435,16 +443,12 @@ a { color: var(--color-primary); text-decoration: none; }
     left: 50%;
     margin-left: -1.5px;
 }
-
-/* Contenedor de cada item del timeline */
 .timeline-item {
     padding: 10px 40px;
     position: relative;
     background-color: inherit;
     width: 50%;
 }
-
-/* El círculo en la línea */
 .timeline-item::after {
     content: '';
     position: absolute;
@@ -458,18 +462,12 @@ a { color: var(--color-primary); text-decoration: none; }
     z-index: 1;
     transition: background-color 0.3s ease;
 }
-
-/* Items a la izquierda */
 .timeline-item.left {
     left: 0;
 }
-
-/* Items a la derecha */
 .timeline-item.right {
     left: 50%;
 }
-
-/* Flecha de "burbuja" (izquierda) */
 .timeline-item.left::before {
     content: " ";
     height: 0;
@@ -482,8 +480,6 @@ a { color: var(--color-primary); text-decoration: none; }
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent var(--bg-light-dark);
 }
-
-/* Flecha de "burbuja" (derecha) */
 .timeline-item.right::before {
     content: " ";
     height: 0;
@@ -496,13 +492,9 @@ a { color: var(--color-primary); text-decoration: none; }
     border-width: 10px 10px 10px 0;
     border-color: transparent var(--bg-light-dark) transparent transparent;
 }
-
-/* Círculo para items de la derecha */
 .timeline-item.right::after {
     left: -10px;
 }
-
-/* Contenido del item */
 .timeline-content {
     padding: 20px 30px;
     background-color: var(--bg-light-dark);
@@ -512,7 +504,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: box-shadow 0.3s ease;
 }
 .timeline-item:hover .timeline-content {
-    box-shadow: 0 0 20px rgba(179, 102, 255, 0.2); /* Brillo en hover */
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.2); /* Brillo azul en hover */
 }
 .timeline-item:hover::after {
     background-color: var(--color-primary);
@@ -521,7 +513,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .timeline-date {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-accent); /* Fechas en Verde Neón */
+    color: var(--color-accent-purple); /* Fechas en Morado Neón */
     margin-bottom: 0.5rem;
 }
 .timeline-title {
