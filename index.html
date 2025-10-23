@@ -29,39 +29,17 @@
     </nav>
 
     <div class="mobile-nav" id="mobile-nav">
-        <div class="mobile-nav-close" id="mobile-nav-close">
-            <i class="fa-solid fa-xmark"></i>
         </div>
-        <ul class="mobile-nav-menu">
-            <li><a href="#hero" class="mobile-nav-link">Inicio</a></li>
-            <li><a href="#projects" class="mobile-nav-link">Proyectos</a></li>
-            <li><a href="#skills" class="mobile-nav-link">Habilidades</a></li>
-            <li><a href="#experience" class="mobile-nav-link">Experiencia</a></li>
-            <li><a href="#contact" class="mobile-nav-link">Contacto</a></li>
-        </ul>
-    </div>
 
     <header class="hero" id="hero">
-        <div class="container hero-content">
-            <h1 class="fade-in text-gradient">Hola, soy Oscar David Olarte Forero</h1>
-            <p class="hero-subtitle fade-in">Especialista en Ciberseguridad e Inteligencia Artificial</p>
-            <p class="hero-description fade-in">
-                Construyo la próxima generación de defensas de seguridad, utilizando IA para automatizar el análisis SOC, asegurar LLMs contra ataques y desplegar infraestructuras inmutables (Terraform, AWS, Docker). Convierto problemas de seguridad complejos en soluciones de software robustas y escalables.
-            </p>
-            <div class="hero-links fade-in">
-                <a href="https://www.linkedin.com/in/oscar-david-olarte-forero-110292382/" target="_blank" class="btn btn-primary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/osdaolfonabaco-beep" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="CV-Oscar-Olarte.pdf" target="_blank" class="btn btn-secondary">Descargar CV</a>
-            </div>
-        </div>
-    </header>
+        </header>
 
     <section id="projects" class="projects-section">
         <div class="container">
-            <h2 class="reveal text-gradient">Proyectos Destacados</h2>
+            <h2 class="reveal-title text-gradient">Proyectos Destacados</h2>
             <div class="projects-grid">
                 
-                <div class="project-card reveal" 
+                <div class="project-card reveal-card" 
                      data-title="Autonomous SOC Analyst Agent"
                      data-description="Un agente de IA que automatiza por completo el flujo de un analista SOC Nivel 1. Ingiere logs de AWS CloudTrail, detecta anomalías de inicio de sesión y realiza un enriquecimiento automático de IPs (Geo-location y VirusTotal). Finalmente, utiliza LangChain y Claude 3 para generar informes de incidentes listos para ejecutivos, reduciendo drásticamente la fatiga de alertas."
                      data-tags='["Python", "IA (LangChain)", "Ciberseguridad", "AWS (Boto3)", "Automatización"]'
@@ -86,7 +64,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card reveal"
+                <div class="project-card reveal-card"
                      data-title="AWS Serverless Log Analyzer"
                      data-description="Un pipeline de análisis de seguridad 100% serverless y automatizado en AWS, diseñado para detectar actividad sospechosa. Toda la infraestructura (S3, Lambda, ECR, IAM) es desplegada de forma consistente y repetible utilizando Terraform (IaC). Al subir un log a S3, un contenedor Docker en Lambda es invocado para analizar las IPs más frecuentes y reportar los hallazgos a CloudWatch."
                      data-tags='["AWS (Lambda/S3)", "Terraform (IaC)", "Serverless", "Docker", "Python"]'
@@ -111,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal"
+                <div class="project-card reveal-card"
                      data-title="LogSentinel: Cloud Security Pipeline"
                      data-description="Un pipeline de datos de seguridad de extremo a extremo que transforma logs brutos en inteligencia accionable. El sistema ingiere datos desde AWS S3, los enriquece en tiempo real contra APIs de inteligencia de amenazas (como AbuseIPDB) y persiste los hallazOS en una base de datos SQL para análisis histórico. Demuestra un dominio completo del ciclo de vida del dato de seguridad, desde la generación de datasets a gran escala (con Pandas) hasta la consulta final con SQL."
                      data-tags='["Python", "Data Engineering", "AWS (S3/Boto3)", "SQL (SQLite)", "Pandas"]'
@@ -136,7 +114,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal"
+                <div class="project-card reveal-card"
                      data-title='"Superhuman" AI Security Gateway'
                      data-description="Un gateway de seguridad de nivel de producción (Docker/FastAPI) que actúa como un 'Guardia de IA' entre los usuarios y cualquier LLM. Implementa una defensa en profundidad: analiza los prompts de *entrada* para bloquear ataques de Inyección de Prompts y escanea las respuestas de *salida* para detectar y redactar PII (DLP) y contenido tóxico, resolviendo el mayor riesgo en la adopción empresarial de la IA."
                      data-tags='["Python (FastAPI)", "IA Security", "Docker", "LLM", "DLP (PII)"]'
@@ -166,10 +144,10 @@
 
     <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="reveal text-gradient">Habilidades Técnicas</h2>
+            <h2 class="reveal-title text-gradient">Habilidades Técnicas</h2>
             <div class="skills-grid">
                 
-                <div class="skill-category reveal">
+                <div class="skill-category reveal-card">
                     <h4>Lenguajes y Core</h4>
                     <ul class="skill-list">
                         <li><i class="fa-brands fa-python"></i> Python</li>
@@ -184,7 +162,7 @@
                     </div>
                 </div>
                 
-                <div class="skill-category reveal">
+                <div class="skill-category reveal-card">
                     <h4>Ciberseguridad</h4>
                     <ul class="skill-list">
                         <li><i class="fa-solid fa-shield-halved"></i> Análisis de Logs</li>
@@ -200,7 +178,7 @@
                     </div>
                 </div>
                 
-                <div class="skill-category reveal">
+                <div class="skill-category reveal-card">
                     <h4>IA y Datos</h4>
                     <ul class="skill-list">
                         <li><i class="fa-solid fa-robot"></i> Machine Learning</li>
@@ -216,7 +194,7 @@
                     </div>
                 </div>
                 
-                <div class="skill-category reveal">
+                <div class="skill-category reveal-card">
                     <h4>Cloud y DevOps</h4>
                     <ul class="skill-list">
                         <li><i class="fa-brands fa-aws"></i> AWS</li>
@@ -238,42 +216,61 @@
 
     <section id="experience" class="experience-section">
         <div class="container">
-            <h2 class="reveal text-gradient">Experiencia y Formación</h2>
+            <h2 class="reveal-title text-gradient">Experiencia y Formación</h2>
             <div class="timeline">
                 
-                <div class="timeline-item left reveal">
+                <div class="timeline-item left reveal-card">
                     <div class="timeline-content">
                         <div class="timeline-date">2021 - 2024</div>
                         <div class="timeline-title">Administrador de Empresas</div>
                         <div class="timeline-subtitle">Corporación Universitaria Minuto de Dios</div>
+                        <div class="timeline-summary">
+                            <p>Formación en gestión estratégica, finanzas y optimización de procesos de negocio.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item right reveal">
+
+                <div class="timeline-item right reveal-card">
                     <div class="timeline-content">
                         <div class="timeline-date">2024</div>
                         <div class="timeline-title">Certificación AWS Cloud Practitioner</div>
                         <div class="timeline-subtitle">Amazon Web Services</div>
+                        <div class="timeline-summary">
+                            <p>Dominio de los fundamentos de la nube de AWS, servicios core, seguridad, arquitectura y precios.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item left reveal">
+                
+                <div class="timeline-item left reveal-card">
                     <div class="timeline-content">
                         <div class="timeline-date">2024</div>
                         <div class="timeline-title">Certificación Google Cybersecurity Professional</div>
                         <div class="timeline-subtitle">Google (Coursera)</div>
+                        <div class="timeline-summary">
+                            <p>Habilidades en SIEM, análisis de logs (SQL, Python) y marcos de respuesta a incidentes (IR).</p>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item right reveal">
+
+                <div class="timeline-item right reveal-card">
                     <div class="timeline-content">
                         <div class="timeline-date">2024</div>
                         <div class="timeline-title">Certificación Microsoft Azure Fundamentals (AZ-900)</div>
                         <div class="timeline-subtitle">Microsoft</div>
+                        <div class="timeline-summary">
+                            <p>Conocimiento de los conceptos de la nube, servicios de Azure, seguridad, privacidad y gobernanza.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item left reveal">
+
+                <div class="timeline-item left reveal-card">
                     <div class="timeline-content">
                         <div class="timeline-date">2024</div>
                         <div class="timeline-title">Certificación Python para Data Science y ML</div>
                         <div class="timeline-subtitle">IBM (Coursera)</div>
+                        <div class="timeline-summary">
+                            <p>Uso de Python, Pandas, NumPy y Scikit-learn para análisis de datos y construcción de modelos de ML.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -282,8 +279,8 @@
     </section>
 
     <section id="contact" class="contact-section">
-        <div class="container reveal">
-            <h2 class="reveal text-gradient">Hablemos</h2>
+        <div class="container reveal-card">
+            <h2 class="reveal-title text-gradient">Hablemos</h2>
             <p>
                 Estoy buscando activamente nuevas oportunidades y me encantaría conectar.
                 <br>
@@ -294,28 +291,10 @@
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Oscar David Olarte Forero. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+        </footer>
 
     <div class="modal-overlay" id="modal-overlay">
-        <div class="modal-content" id="modal-content">
-            <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-body">
-                <h2 id="modal-title"></h2>
-                <div id="modal-image-placeholder">
-                    <p>(Aquí irá la imagen del proyecto)</p>
-                </div>
-                <div class="modal-tags" id="modal-tags">
-                </div>
-                <p id="modal-description"></p>
-                <div class="modal-links">
-                    <a href="#" id="modal-github-link" target="_blank" class="btn btn-primary"><i class="fa-brands fa-github"></i> Ver Código</a>
-                </div>
-            </div>
         </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
