@@ -6,9 +6,15 @@
     --text-secondary: #aaaaaa;
 
     /* --- NUEVA PALETA "CYBERPUNK NEON" REFINADA --- */
-    --color-primary: #B366FF; /* Morado Neón (más claro) */
-    --color-primary-hover: #D6A3FF; /* Morado más claro para hover */
-    --color-accent: #00FFAA; /* Verde Neón para acentos */
+    
+    /* CAMBIO: Morado aclarado (antes #B366FF) */
+    --color-primary: #D6A3FF; 
+    
+    /* CAMBIO: Hover del morado, aclarado aún más (antes #D6A3FF) */
+    --color-primary-hover: #E9D1FF; 
+    
+    /* CAMBIO: Verde aclarado (antes #00FFAA) */
+    --color-accent: #80FFD5; 
     
     --border-color: #333333;
     --font-family: 'Inter', sans-serif; 
@@ -73,7 +79,8 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-primary:hover {
     background-color: var(--color-primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(179, 102, 255, 0.3); /* Morado ajustado */
+    /* CAMBIO: Sombra ajustada al nuevo morado */
+    box-shadow: 0 5px 15px rgba(214, 163, 255, 0.3); 
 }
 .btn-secondary {
     background-color: transparent;
@@ -83,7 +90,8 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-secondary:hover {
     background-color: var(--color-primary);
     color: #fff;
-    box-shadow: 0 0 15px rgba(179, 102, 255, 0.3); /* Morado ajustado */
+    /* CAMBIO: Sombra ajustada al nuevo morado */
+    box-shadow: 0 0 15px rgba(214, 163, 255, 0.3); 
 }
 
 /* --- Barra de Navegación --- */
@@ -239,16 +247,28 @@ a { color: var(--color-primary); text-decoration: none; }
 
 /* --- TEXTO GRADIENTE (AHORA USA MORADO Y VERDE) --- */
 .text-gradient {
-    background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
-    background-size: 200% auto;
+    /* CAMBIO: Gradiente actualizado para incluir blanco */
+    background: linear-gradient(90deg, 
+        var(--color-primary), 
+        #FFFFFF, 
+        var(--color-accent), 
+        #FFFFFF, 
+        var(--color-primary)
+    );
+    
+    /* CAMBIO: Tamaño de fondo aumentado para el nuevo gradiente más largo */
+    background-size: 400% auto;
+    
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-flow 4s linear infinite;
+    
+    /* CAMBIO: Animación más lenta para un flujo más suave */
+    animation: gradient-flow 8s linear infinite;
 }
 
 @keyframes gradient-flow {
-    0% { background-position: 200% center; }
+    0% { background-position: 400% center; } /* CAMBIO: Ajustado a 400% */
     100% { background-position: 0% center; }
 }
 
@@ -275,8 +295,8 @@ a { color: var(--color-primary); text-decoration: none; }
 .project-card:hover {
     transform: translateY(-8px); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
-                /* Brillo morado ajustado */
-                0 0 20px rgba(179, 102, 255, 0.2); 
+                /* CAMBIO: Brillo morado ajustado al nuevo color */
+                0 0 20px rgba(214, 163, 255, 0.2); 
 }
 
 .project-image {
@@ -356,7 +376,8 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 .skill-category:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); /* Brillo en hover */
+    /* CAMBIO: Sombra ajustada al nuevo hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); 
 }
 
 .skill-category h4 {
@@ -378,7 +399,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 .skill-category i {
-    color: var(--color-accent); /* Iconos ahora en Verde Neón */
+    color: var(--color-accent); /* Iconos ahora en Verde Neón (aclarado) */
     margin-right: 0.75rem;
     width: 20px; 
     text-align: center;
@@ -401,7 +422,7 @@ a { color: var(--color-primary); text-decoration: none; }
     color: var(--text-primary);
 }
 .skill-category li:hover i {
-    color: var(--color-primary); /* Cambia a Morado Neón en hover */
+    color: var(--color-primary); /* Cambia a Morado Neón (aclarado) en hover */
     transform: scale(1.2);
 }
 
@@ -504,7 +525,8 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: box-shadow 0.3s ease;
 }
 .timeline-item:hover .timeline-content {
-    box-shadow: 0 0 20px rgba(179, 102, 255, 0.2); /* Brillo en hover */
+    /* CAMBIO: Sombra ajustada al nuevo morado */
+    box-shadow: 0 0 20px rgba(214, 163, 255, 0.2); 
 }
 .timeline-item:hover::after {
     background-color: var(--color-primary);
@@ -513,7 +535,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .timeline-date {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-accent); /* Fechas en Verde Neón */
+    color: var(--color-accent); /* Fechas en Verde Neón (aclarado) */
     margin-bottom: 0.5rem;
 }
 .timeline-title {
