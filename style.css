@@ -5,10 +5,10 @@
     --text-primary: #e0e0e0;
     --text-secondary: #aaaaaa;
 
-    /* --- NUEVA PALETA "CYBERPUNK NEON" --- */
-    --color-primary: #9D00FF; /* Morado Neón (reemplaza al azul) */
-    --color-primary-hover: #c04fff;
-    --color-secondary: #00E5FF; /* Cian Eléctrico (para acentos) */
+    /* --- NUEVA PALETA "CYBERPUNK NEON" REFINADA --- */
+    --color-primary: #B366FF; /* Morado Neón (más claro) */
+    --color-primary-hover: #D6A3FF; /* Morado más claro para hover */
+    --color-accent: #00FFAA; /* Verde Neón para acentos */
     
     --border-color: #333333;
     --font-family: 'Inter', sans-serif; 
@@ -73,7 +73,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-primary:hover {
     background-color: var(--color-primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(157, 0, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(179, 102, 255, 0.3); /* Morado ajustado */
 }
 .btn-secondary {
     background-color: transparent;
@@ -83,7 +83,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-secondary:hover {
     background-color: var(--color-primary);
     color: #fff;
-    box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
+    box-shadow: 0 0 15px rgba(179, 102, 255, 0.3); /* Morado ajustado */
 }
 
 /* --- Barra de Navegación --- */
@@ -237,10 +237,9 @@ a { color: var(--color-primary); text-decoration: none; }
     margin: 0.5rem;
 }
 
-/* --- TEXTO GRADIENTE (AHORA USA EL MORADO) --- */
+/* --- TEXTO GRADIENTE (AHORA USA MORADO Y VERDE) --- */
 .text-gradient {
-    /* El gradiente ahora usa el morado y el cian para el toque 'Apple' */
-    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-primary));
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -276,8 +275,8 @@ a { color: var(--color-primary); text-decoration: none; }
 .project-card:hover {
     transform: translateY(-8px); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
-                /* Brillo morado */
-                0 0 20px rgba(157, 0, 255, 0.2);
+                /* Brillo morado ajustado */
+                0 0 20px rgba(179, 102, 255, 0.2); 
 }
 
 .project-image {
@@ -353,12 +352,11 @@ a { color: var(--color-primary); text-decoration: none; }
     padding: 2rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    /* Transición para el hover */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .skill-category:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); /* Brillo en hover */
 }
 
 .skill-category h4 {
@@ -375,15 +373,12 @@ a { color: var(--color-primary); text-decoration: none; }
     font-size: 1rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
-    
-    /* --- ANIMACIÓN STAGGER: Estado Inicial --- */
     opacity: 0;
     transform: translateX(-20px);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 .skill-category i {
-    /* --- NUEVO COLOR SECUNDARIO --- */
-    color: var(--color-secondary); /* Iconos en Cian Eléctrico */
+    color: var(--color-accent); /* Iconos ahora en Verde Neón */
     margin-right: 0.75rem;
     width: 20px; 
     text-align: center;
@@ -391,12 +386,10 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 
 /* --- ANIMACIÓN STAGGER: Estado Visible --- */
-/* Cuando la tarjeta es visible, animamos los 'li' */
 .skill-category.visible li {
     opacity: 1;
     transform: translateX(0);
 }
-
 /* --- ANIMACIÓN STAGGER: Retrasos --- */
 .skill-category.visible li:nth-child(1) { transition-delay: 0.1s; }
 .skill-category.visible li:nth-child(2) { transition-delay: 0.2s; }
@@ -408,13 +401,13 @@ a { color: var(--color-primary); text-decoration: none; }
     color: var(--text-primary);
 }
 .skill-category li:hover i {
-    color: var(--color-primary); /* Cambia a morado en hover */
+    color: var(--color-primary); /* Cambia a Morado Neón en hover */
     transform: scale(1.2);
 }
 
 
 /* ================================== */
-/* --- NUEVA SECCIÓN: EXPERIENCIA --- */
+/* --- SECCIÓN: EXPERIENCIA Y FORMACIÓN --- */
 /* ================================== */
 .timeline {
     position: relative;
@@ -511,7 +504,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: box-shadow 0.3s ease;
 }
 .timeline-item:hover .timeline-content {
-    box-shadow: 0 0 20px rgba(157, 0, 255, 0.2);
+    box-shadow: 0 0 20px rgba(179, 102, 255, 0.2); /* Brillo en hover */
 }
 .timeline-item:hover::after {
     background-color: var(--color-primary);
@@ -520,7 +513,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .timeline-date {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-accent); /* Fechas en Verde Neón */
     margin-bottom: 0.5rem;
 }
 .timeline-title {
@@ -571,7 +564,6 @@ a { color: var(--color-primary); text-decoration: none; }
 .projects-grid .reveal.visible:nth-child(2) { transition-delay: 100ms; }
 .projects-grid .reveal.visible:nth-child(3) { transition-delay: 200ms; }
 .projects-grid .reveal.visible:nth-child(4) { transition-delay: 300ms; }
-/* NOTA: El stagger de skills se maneja de forma diferente (arriba) */
 
 
 /* --- ESTILOS DEL MODAL --- */
@@ -623,7 +615,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: color 0.3s ease;
 }
 .modal-close:hover {
-    color: var(--text-primary);
+    color: var(--color-primary);
 }
 .modal-body #modal-title {
     color: var(--color-primary);
