@@ -1,3 +1,6 @@
+/* --- Importación de Fuentes --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap');
+
 /* --- Configuración Global y Variables --- */
 :root {
     --bg-dark: #121212;
@@ -6,13 +9,17 @@
     --text-secondary: #aaaaaa;
 
     /* --- PALETA V8: AZUL (Primario) + NEÓN (Acentos) --- */
-    --color-primary: #00aaff; /* Azul Tech (Restaurado) */
-    --color-primary-hover: #0088cc; /* Azul Hover (Restaurado) */
+    --color-primary: #00aaff; /* Azul Tech */
+    --color-primary-hover: #0088cc; /* Azul Hover */
     --color-accent-purple: #B366FF; /* Morado Neón (Acento 1) */
     --color-accent-green: #00FFAA; /* Verde Neón (Acento 2) */
     
     --border-color: #333333;
-    --font-family: 'Inter', sans-serif; 
+    --font-family: 'Inter', sans-serif;
+    
+    /* --- NUEVAS VARIABLES (V9) --- */
+    --font-mono: 'Roboto Mono', monospace; /* Fuente de interfaz "tech" */
+    --shadow-bloom-primary: rgba(0, 170, 255, 0.15); /* Resplandor azul suave */
 }
 
 * {
@@ -27,7 +34,9 @@ html {
 
 body {
     font-family: var(--font-family);
+    /* --- MODIFICACIÓN: Fondo más profundo --- */
     background-color: var(--bg-dark);
+    background-image: radial-gradient(ellipse 80% 100% at 50% -10%, rgba(255, 255, 255, 0.03), transparent 60%);
     color: var(--text-primary);
     line-height: 1.6;
 }
@@ -74,7 +83,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-primary:hover {
     background-color: var(--color-primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3); /* Sombra azul */
+    box-shadow: 0 5px 15px var(--shadow-bloom-primary); /* Sombra suave */
 }
 .btn-secondary {
     background-color: transparent;
@@ -84,7 +93,7 @@ a { color: var(--color-primary); text-decoration: none; }
 .btn-secondary:hover {
     background-color: var(--color-primary);
     color: #fff;
-    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3); /* Sombra azul */
+    box-shadow: 0 0 15px var(--shadow-bloom-primary); /* Sombra suave */
 }
 
 /* --- Barra de Navegación --- */
@@ -99,7 +108,8 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: background-color 0.3s ease, border-color 0.3s ease; 
 }
 .navbar.navbar-scrolled {
-    background-color: var(--bg-light-dark);
+    background-color: rgba(30, 30, 30, 0.85); /* Fondo traslúcido al hacer scroll */
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -141,7 +151,7 @@ a { color: var(--color-primary); text-decoration: none; }
     transform: scaleX(1); 
 }
 
-/* --- ESTILO DE NAVEGACIÓN ACTIVA (NUEVO) --- */
+/* --- ESTILO DE NAVEGACIÓN ACTIVA (SIN CAMBIOS) --- */
 .nav-menu a.active-link {
     color: var(--color-primary); /* Resalta el enlace activo en azul */
 }
@@ -150,7 +160,7 @@ a { color: var(--color-primary); text-decoration: none; }
 }
 
 
-/* --- BOTÓN HAMBURGUESA --- */
+/* --- BOTÓN HAMBURGUESA (SIN CAMBIOS) --- */
 .nav-toggle {
     display: none; 
     font-size: 1.5rem;
@@ -159,7 +169,7 @@ a { color: var(--color-primary); text-decoration: none; }
     z-index: 1100;
 }
 
-/* --- MENÚ OVERLAY MÓVIL --- */
+/* --- MENÚ OVERLAY MÓVIL (SIN CAMBIOS) --- */
 .mobile-nav {
     position: fixed;
     top: 0;
@@ -206,9 +216,8 @@ a { color: var(--color-primary); text-decoration: none; }
 .mobile-nav-link:hover {
     color: var(--color-primary);
 }
-/* --- ESTILO ACTIVO MÓVIL (NUEVO) --- */
 .mobile-nav-link.active-link {
-    color: var(--color-primary); /* Resalta el enlace activo en azul */
+    color: var(--color-primary);
 }
 
 
@@ -225,39 +234,47 @@ a { color: var(--color-primary); text-decoration: none; }
     max-width: 800px;
     margin: 0 auto;
 }
-.hero-content > .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.hero-content > .fade-in:nth-child(1) { transition-delay: 0.1s; }
-.hero-content > .fade-in:nth-child(2) { transition-delay: 0.2s; }
-.hero-content > .fade-in:nth-child(3) { transition-delay: 0.3s; }
-.hero-content > .fade-in:nth-child(4) { transition-delay: 0.4s; }
+
+/* --- ELIMINADO: .hero-content > .fade-in --- */
+/* La animación de entrada ahora es manejada por script.js */
+
 .hero-subtitle {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--color-primary);
     margin-bottom: 1rem;
+    /* --- Se añade altura mínima para evitar "salto" de layout con el script --- */
+    min-height: 1.5em; 
 }
 .hero-description {
     font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 2rem auto;
+    
+    /* --- Añadida transición suave para la entrada del fade-in del JS --- */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out 1.8s, transform 0.6s ease-out 1.8s;
+}
+.hero-links {
+    /* --- Añadida transición suave para la entrada del fade-in del JS --- */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out 2.0s, transform 0.6s ease-out 2.0s;
 }
 .hero-links a {
     margin: 0.5rem;
 }
 
-/* --- TEXTO GRADIENTE (AHORA USA MORADO Y VERDE NEÓN) --- */
+/* --- TEXTO GRADIENTE (MODIFICADO: Paleta más sobria) --- */
 .text-gradient {
-    background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-green), var(--color-accent-purple));
+    background: linear-gradient(90deg, var(--color-accent-purple), var(--color-primary), var(--color-accent-purple));
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-flow 4s linear infinite;
+    animation: gradient-flow 6s linear infinite; /* Animación más lenta y suave */
 }
 
 @keyframes gradient-flow {
@@ -282,13 +299,17 @@ a { color: var(--color-primary); text-decoration: none; }
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    /* --- MODIFICACIÓN: Transición más suave y enfocada --- */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    will-change: transform, box-shadow, border-color; /* Optimización de performance */
 }
 
 .project-card:hover {
-    transform: translateY(-8px) scale(1.1); 
+    /* --- MODIFICACIÓN: Efecto "bloom" sutil, menos "scale" --- */
+    transform: translateY(-6px) scale(1.02); 
+    border-color: var(--color-primary-hover);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
-                0 0 20px rgba(0, 170, 255, 0.2); /* Sombra de brillo azul */
+                0 0 25px var(--shadow-bloom-primary); /* Resplandor suave */
     z-index: 10; 
     position: relative; 
 }
@@ -320,21 +341,7 @@ a { color: var(--color-primary); text-decoration: none; }
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.project-tags {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-.project-tags li {
-    background-color: var(--bg-light-dark);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-}
+
 .project-links {
     margin-top: auto;
 }
@@ -366,12 +373,15 @@ a { color: var(--color-primary); text-decoration: none; }
     padding: 2rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    /* --- MODIFICACIÓN: Transición suave (igual a proyectos) --- */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    will-change: transform, box-shadow, border-color;
 }
 .skill-category:hover {
-    /* --- MODIFICACIÓN V8: EMPAREJADO CON PROYECTOS --- */
-    transform: translateY(-8px) scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px var(--color-primary-hover); 
+    /* --- MODIFICACIÓN: Efecto "bloom" sutil (igual a proyectos) --- */
+    transform: translateY(-6px) scale(1.02);
+    border-color: var(--color-primary-hover);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 20px var(--shadow-bloom-primary); 
     z-index: 10;
     position: relative;
 }
@@ -382,6 +392,9 @@ a { color: var(--color-primary); text-decoration: none; }
     border-bottom: 2px solid var(--color-primary);
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
+    /* --- MODIFICACIÓN: Aplicada fuente mono --- */
+    font-family: var(--font-mono);
+    font-weight: 600;
 }
 .skill-category ul {
     list-style: none;
@@ -402,12 +415,11 @@ a { color: var(--color-primary); text-decoration: none; }
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* --- ANIMACIÓN STAGGER: Estado Visible --- */
+/* --- ANIMACIÓN STAGGER (SIN CAMBIOS) --- */
 .skill-category.visible li {
     opacity: 1;
     transform: translateX(0);
 }
-/* --- ANIMACIÓN STAGGER: Retrasos --- */
 .skill-category.visible li:nth-child(1) { transition-delay: 0.1s; }
 .skill-category.visible li:nth-child(2) { transition-delay: 0.2s; }
 .skill-category.visible li:nth-child(3) { transition-delay: 0.3s; }
@@ -460,7 +472,7 @@ a { color: var(--color-primary); text-decoration: none; }
     top: 15px;
     border-radius: 50%;
     z-index: 1;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .timeline-item.left {
     left: 0;
@@ -501,13 +513,15 @@ a { color: var(--color-primary); text-decoration: none; }
     border: 1px solid var(--border-color);
     position: relative;
     border-radius: 8px;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .timeline-item:hover .timeline-content {
-    box-shadow: 0 0 20px rgba(0, 170, 255, 0.2); /* Brillo azul en hover */
+    border-color: var(--border-color); /* Mantenemos borde sutil */
+    box-shadow: 0 0 20px var(--shadow-bloom-primary); /* Brillo azul suave */
 }
 .timeline-item:hover::after {
     background-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--shadow-bloom-primary);
 }
 
 .timeline-date {
@@ -515,6 +529,7 @@ a { color: var(--color-primary); text-decoration: none; }
     font-weight: 600;
     color: var(--color-accent-purple); /* Fechas en Morado Neón */
     margin-bottom: 0.5rem;
+    font-family: var(--font-mono); /* Aplicada fuente mono */
 }
 .timeline-title {
     font-size: 1.2rem;
@@ -559,7 +574,7 @@ a { color: var(--color-primary); text-decoration: none; }
     opacity: 1;
     transform: translateY(0);
 }
-/* Stagger para grids */
+/* Stagger para grids (SIN CAMBIOS) */
 .projects-grid .reveal.visible:nth-child(1) { transition-delay: 0s; }
 .projects-grid .reveal.visible:nth-child(2) { transition-delay: 100ms; }
 .projects-grid .reveal.visible:nth-child(3) { transition-delay: 200ms; }
@@ -647,6 +662,8 @@ a { color: var(--color-primary); text-decoration: none; }
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.85rem;
+    /* --- MODIFICACIÓN: Aplicada fuente mono --- */
+    font-family: var(--font-mono);
 }
 #modal-description {
     color: var(--text-primary);
@@ -711,7 +728,7 @@ html {
         font-size: 1.5rem;
     }
     
-    /* --- Ajustes de Timeline para Móvil --- */
+    /* --- Ajustes de Timeline para Móvil (SIN CAMBIOS) --- */
     .timeline::after {
         left: 31px;
     }
