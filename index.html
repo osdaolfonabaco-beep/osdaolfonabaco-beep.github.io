@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar Olarte - DevSecOps Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="vanta-bg"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">Oscar Olarte</a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact Me</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-close" id="mobile-nav-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul class="mobile-nav-menu">
+            <li><a href="#about" class="mobile-nav-link">About Me</a></li>
+            <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+            <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+            <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact Me</a></li>
+        </ul>
+    </div>
+
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <p class="hero-subtitle fade-in">¡ Hi There !</p>
+            <h1 class="fade-in text-gradient">Oscar David Olarte Forero: Security Engineer | AI-Driven Defense.</h1>
+            <p class="hero-description fade-in">
+                I design and build proactive security solutions. My portfolio focuses on automating threat detection and engineering intelligent defenses for AI and cloud applications.
+            </p>
+            <div class="hero-links fade-in">
+                <a href="CV Oscar David Olarte.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Descargar CV</a>
+                <a href="https://www.linkedin.com/in/oscar-david-olarte-forero-110292382/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/osdaolfonabaco-beep?tab=repositories" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                
+                <a href="#projects" class="btn btn-secondary">Ver Proyectos</a> <a href="#contact" class="btn btn-secondary">Contactar</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="reveal-title text-gradient">About Me</h2>
+            <div class="reveal-card">
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm a self-taught Security Engineer with a practical, project-driven focus on solving complex security challenges.</p>
+                        <p>My journey into tech is unconventional. I graduated with a degree in Business Administration and spent 3.5 years in the US finance sector, where I honed C1-level English communication skills and learned to operate in highly regulated, data-sensitive environments.</p>
+                        <p>Driven by a passion for technology, I pivoted my career to cybersecurity and dedicated myself to building the solutions I found most interesting. My "builder's mindset" is my core strength.</p>
+                        <p>Instead of just pursuing certifications, I focused on creating a portfolio of advanced, product-focused projects. This includes developing an LLM Security Gateway to protect AI applications, building an Autonomous SOC Analyst Agent to automate threat detection, and engineering an AWS Serverless Log Analyzer for efficient cloud monitoring.</p>
+                        <p>I thrive on solving puzzles and building robust, intelligent systems from the ground up. I am now seeking my first formal role where I can apply my engineering skills, my passion for AI-driven defense, and my relentless drive to help secure a forward-thinking organization.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="oscar-foto.png" alt="Foto de Oscar Olarte"> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="reveal-title text-gradient">Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card reveal-card"
+                    data-title="Cortex: AI-Powered Threat Intelligence Platform"
+                    data-description="An AI-driven, graph-based visual platform for automating the ingestion, correlation, and analysis of multi-source cybersecurity threat intelligence. It moves analysts from manual text review to a dynamic, queryable visual interface, transforming unstructured text into an interactive knowledge graph."
+                    data-github-url="https://github.com/osdaolfonabaco-beep"
+                    data-tags='["AI", "Python", "Threat Intelligence", "Knowledge Graph"]'
+                    data-image-url="cortex_proyecto.png">
+                    <div class="project-image" style="background-image: url('cortex_proyecto.png');"></div>
+                    <div class="project-content">
+                        <h3>Cortex: AI Threat Intel Platform</h3>
+                        <div class="project-details">
+                            <p class="project-description">AI-driven graph platform for automating and visualizing threat intelligence correlation.</p>
+                            <ul class="project-tags">
+                                <li>AI</li>
+                                <li>Python</li>
+                                <li>Knowledge Graph</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-project-modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-card"
+                    data-title="Cyber Threat RAG API"
+                    data-description="A production-ready RAG API using a local vector database and Claude 3 Haiku to answer questions about live cybersecurity threats. This project automates the synthesis of unstructured threat intel data to provide immediate, actionable answers for security analysts, acting as a force-multiplier for a SOC."
+                    data-github-url="https://github.com/osdaolfonabaco-beep"
+                    data-tags='["AI", "RAG", "Claude 3", "FastAPI", "Cybersecurity"]'
+                    data-image-url="cyber threat rag api.png">
+                    <div class="project-image" style="background-image: url('cyber threat rag api.png');"></div>
+                    <div class="project-content">
+                        <h3>Cyber Threat RAG API</h3>
+                        <div class="project-details">
+                            <p class="project-description">RAG API that answers live cybersecurity questions using an LLM and vector database.</p>
+                            <ul class="project-tags">
+                                <li>AI</li>
+                                <li>RAG</li>
+                                <li>FastAPI</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-project-modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-card"
+                    data-title="AI-Powered DevSecOps Pipeline"
+                    data-description="A professional-grade DevSecOps pipeline on GitHub Actions. The system automatically intercepts Pull Requests, scans code (Python/Flask) and infrastructure (Terraform) for vulnerabilities (like SQL Injection & public S3 buckets) using Claude 3 Haiku, and posts a detailed security report as a PR comment, acting as an AI security reviewer."
+                    data-github-url="https://github.com/osdaolfonabaco-beep"
+                    data-tags='["DevSecOps", "AI", "GitHub Actions", "Terraform", "SAST"]'
+                    data-image-url="DevSecOps pipeline.png">
+                    <div class="project-image" style="background-image: url('DevSecOps pipeline.png');"></div>
+                    <div class="project-content">
+                        <h3>AI-Powered DevSecOps Pipeline</h3>
+                        <div class="project-details">
+                            <p class="project-description">AI security reviewer that scans code and IaC for vulnerabilities in pull requests.</p>
+                            <ul class="project-tags">
+                                <li>DevSecOps</li>
+                                <li>AI</li>
+                                <li>GitHub Actions</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-project-modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-card"
+                    data-title="LLM Observability & Cost Management Gateway"
+                    data-description="A high-performance API gateway (FastAPI) to intercept LLM requests (like Anthropic's) to capture and visualize critical real-time metrics for performance, usage, and cost. Solves runaway costs and performance monitoring by visualizing total cost, avg. latency, and token usage in a Grafana dashboard."
+                    data-github-url="https://github.com/osdaolfonabaco-beep"
+                    data-tags='["LLM", "Observability", "FastAPI", "Python", "Grafana"]'
+                    data-image-url="LLM Observability.png">
+                    <div class="project-image" style="background-image: url('LLM Observability.png');"></div>
+                    <div class="project-content">
+                        <h3>LLM Observability Gateway</h3>
+                        <div class="project-details">
+                            <p class="project-description">API gateway to monitor, visualize, and control LLM cost and performance in real-time.</p>
+                            <ul class="project-tags">
+                                <li>LLM</li>
+                                <li>FastAPI</li>
+                                <li>Grafana</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-project-modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-card"
+                    data-title="LogSentinel Cloud Security Data Pipeline"
+                    data-description="LogSentinel is an end-to-end security data pipeline designed to transform logs into actionable threat intelligence. This system ingests data from AWS S3, enriches it via external threat APIs (like AbuseIPDB), and persists findings in a SQL database (SQLite) for historical analysis, moving beyond ephemeral reports to a scalable, cloud-native architecture."
+                    data-github-url="https://github.com/osdaolfonabaco-beep"
+                    data-tags='["Data Pipeline", "Cloud Security", "AWS S3", "Python", "SQL"]'
+                    data-image-url="LogSentinel Cloud Security Data Pipeline.png">
+                    <div class="project-image" style="background-image: url('LogSentinel Cloud Security Data Pipeline.png');"></div>
+                    <div class="project-content">
+                        <h3>LogSentinel Data Pipeline</h3>
+                        <div class="project-details">
+                            <p class="project-description">E2E data pipeline that ingests logs from S3, enriches them, and saves to SQL for analysis.</p>
+                            <ul class="project-tags">
+                                <li>Cloud Security</li>
+                                <li>AWS S3</li>
+                                <li>Data Pipeline</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-project-modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-card"
+                    data-title="Serverless Security Alert System on AWS"
+                    data-description="A fully automated, event-driven, serverless security log analysis system on AWS. An S3 bucket upload triggers a Lambda function (deployed as a Docker container) which analyzes the log file with Python to identify suspicious activity (like top 10 frequent IPs) and publishes the findings to Amazon CloudWatch for monitoring."
+                    data-github-url="https://github.com/osdaolfonabaco-beep"
+                    data-tags='["AWS Lambda", "Serverless", "Security", "S3", "CloudWatch"]'
+                    data-image-url="Serverless Security Alert System on AWS.png">
+                    <div class="project-image" style="background-image: url('Serverless Security Alert System on AWS.png');"></div>
+                    <div class="project-content">
+                        <h3>Serverless Alert System (AWS)</h3>
+                        <div class="project-details">
+                            <p class="project-description">Event-driven log analysis using S3, Lambda, and CloudWatch to detect suspicious activity.</p>
+                            <ul class="project-tags">
+                                <li>AWS Lambda</li>
+                                <li>Serverless</li>
+                                <li>Security</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-project-modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="reveal-title text-gradient">Skills</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category reveal-card">
+                    <h4><i class="fas fa-brain"></i> AI & Data Engineering</h4>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Python (FastAPI, Pandas)</li>
+                        <li><i class="fas fa-check-circle"></i> LLM Integration (Claude 3)</li>
+                        <li><i class="fas fa-check-circle"></i> Retrieval-Augmented Gen. (RAG)</li>
+                        <li><i class="fas fa-check-circle"></i> Data Pipelines & Processing</li>
+                    </ul>
+                    <div class="skill-concepts">
+                        <span>Vector Databases</span><span>AI Agents</span><span>API Development</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal-card">
+                    <h4><i class="fas fa-shield-alt"></i> Cybersecurity & SecOps</h4>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Threat Intelligence Analysis</li>
+                        <li><i class="fas fa-check-circle"></i> Log Analysis (SAST/DAST)</li>
+                        <li><i class="fas fa-check-circle"></i> Vulnerability Management</li>
+                        <li><i class="fas fa-check-circle"></i> Security Automation (SOAR)</li>
+                    </ul>
+                    <div class="skill-concepts">
+                        <span>SIEM Logic</span><span>Threat Hunting</span><span>SQL Injection</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal-card">
+                    <h4><i class="fas fa-cloud"></i> Cloud & DevOps</h4>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> AWS (Lambda, S3, CloudWatch)</li>
+                        <li><i class="fas fa-check-circle"></i> Serverless Architecture</li>
+                        <li><i class="fas fa-check-circle"></i> CI/CD Pipelines (GitHub Actions)</li>
+                        <li><i class="fas fa-check-circle"></i> Infrastructure as Code (Terraform)</li>
+                    </ul>
+                    <div class="skill-concepts">
+                        <span>Docker</span><span>Microservices</span><span>Event-Driven Arch.</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal-card">
+                    <h4><i class="fas fa-tools"></i> Tools & Methods</h4>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Git & GitHub</li>
+                        <li><i class="fas fa-check-circle"></i> SQL (SQLite, PostgreSQL)</li>
+                        <li><i class="fas fa-check-circle"></i> Observability (Grafana)</li>
+                        <li><i class="fas fa-check-circle"></i> Agile & Problem-Solving</li>
+                    </ul>
+                    <div class="skill-concepts">
+                        <span>VS Code</span><span>API Testing (Postman)</span><span>Bash/Shell</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="reveal-title text-gradient">Experience & Education</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item left reveal-card">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 - Present</span>
+                        <h3 class="timeline-title">Security Engineer (Project Portfolio)</h3>
+                        <p class="timeline-subtitle">Self-Taught, Project-Driven</p>
+                        <div class="timeline-summary">
+                            <p>Independently architected, built, and documented a portfolio of 6+ advanced projects focused on AI-driven security, DevSecOps, and cloud log analysis. This hands-on experience demonstrates practical skills in solving real-world security challenges from the ground up.</p>
+                            <ul>
+                                <li>Engineered AI-powered threat detection (RAG) and analysis (Cortex) systems.</li>
+                                <li>Built automated DevSecOps pipelines with AI security reviewers.</li>
+                                <li>Developed serverless data pipelines on AWS for log analysis and alerting.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal-card">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2020 - 2023</span>
+                        <h3 class="timeline-title">Finance and collections</h3>
+                        <p class="timeline-subtitle">Capital One </p>
+                        <div class="timeline-summary">
+                            <p>Worked for 3.5 years in the US finance industry. Mastered C1-level professional English communication and operated within highly regulated, data-sensitive environments. This role provided a strong foundation in compliance, risk, and process management, which directly informs my security-first mindset.</p>
+                            <ul>
+                                <li>Managed sensitive financial data with a high degree of precision and compliance.</li>
+                                <li>Honed advanced English communication skills (written and verbal).</li>
+                                <li>Operated in high-stakes, process-oriented environments.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item left reveal-card">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Graduated 2019</span>
+                        <h3 class="timeline-title">Degree in Business Administration</h3>
+                        <p class="timeline-subtitle">University Minuto de Dios</p>
+                        <div class="timeline-summary">
+                            <p>Graduated with a foundational understanding of business operations, management, and strategic planning. This background provides a unique perspective on how security initiatives align with and support broader business objectives.</p>
+                            <ul>
+                                <li>Strategic Planning & Analysis.</li>
+                                <li>Operations Management.</li>
+                                <li>Business-to-Technology Alignment.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="reveal-title text-gradient">Contact</h2>
+            <p>Have a project in mind or just want to say hello? Feel free to reach out. I'm open to new opportunities and collaborations.</p>
+            <a href="mailto:oscardavidolarteforero@gmail.com" class="btn btn-primary">Send Email</a>
+            <div class="social-links" style="margin-top: 2rem;">
+                <a href="https://www.linkedin.com/in/oscar-david-olarte-forero-110292382/" target="_blank" style="font-size: 2rem; margin: 0 1rem;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/osdaolfonabaco-beep?tab=repositories" target="_blank" style="font-size: 2rem; margin: 0 1rem;"><i class="fab fa-github"></i></a>
+                </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Oscar David Olarte Forero. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+            <div class="modal-body">
+                <h3 id="modal-title">Project Title</h3>
+                <div id="modal-image-placeholder">
+                    </div>
+                <div class="modal-tags" id="modal-tags">
+                    </div>
+                <p id="modal-description">Detailed project description goes here.</p>
+                <div class="modal-links">
+                    <a href="#" id="modal-github-link" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="gsap.min.js"></script>
+    <script src="ScrollTrigger.min.js"></script>
+    <script src="ScrollToPlugin.min.js"></script>
+    
+    <script src="three.min.js"></script>
+    <script src="vanta.net.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
